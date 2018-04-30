@@ -1,12 +1,11 @@
 <?php
 	$database = "piscine";
-	$db_handle = mysqli_connect('localhost', 'root', '');
+	$db_handle = mysqli_connect('localhost','root','');
 	$db_found = mysqli_select_db($db_handle, $database);
-
 
 	$nom = isset($_POST["nom"])? $_POST["nom"]:"";
 	$prenom = isset($_POST["prenom"])? $_POST["prenom"]:"";
-	$email = isset($_POST["mail"])? $_POST["mail"]:"";
+	$email = isset($_POST["email"])? $_POST["email"]:"";
 	$mdp = isset($_POST["mdp"])? $_POST["mdp"]:"";
 	$mdp1 = isset($_POST["mdp1"])? $_POST["mdp1"]:"";
 
@@ -15,19 +14,19 @@
 	$error = "";
 
 	if($nom == ""){
-		$error .= "Nom est vide, ";
+		$error .= "Nom est vide<br/>";
 	}
 
 	if($prenom == ""){
-		$error .= "Prenom est vide, ";
+		$error .= "Prenom est vide<br/>";
 	}
 
 	if($email == ""){
-		$error .= "Mail est vide, ";
+		$error .= "Mail est vide<br/>";
 	}
 
 	if($mdp == ""){
-		$error .= "Mot de passe vide.";
+		$error .= "Mot de passe vide<br/>";
 	}
 
 	if($mdp != $mdp1){
@@ -35,7 +34,7 @@
 	}
 
 
-		if($error == ""){
+	if($error == ""){
 		echo "Formulaire valide <br/><br/>";
 		
 		// Hachage du mot de passe
@@ -54,13 +53,19 @@
 		$connection = true;		
 		}
 	else{
-		Redirect('inscription.php?error_message='.$error, false);
+		Redirect('inscription.php?error='.$error,false);
 	}
-
-	function Redirect($url, $permanent = false)
+		    function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
     }
-	
+
 ?>
+
+
+
+
+
+
+

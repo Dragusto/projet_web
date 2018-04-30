@@ -1,16 +1,10 @@
 ﻿<?php
-try
-{
-	// On se connecte à MySQL
-	$bdd = new PDO('mysql:host=localhost;dbname=piscine;charset=utf8', 'root', 'root');
-}
-catch(Exception $e)
-{
-	// En cas d'erreur, on affiche un message et on arrête tout
-        die('Erreur : '.$e->getMessage());
-}
-$remail = $bdd->query('SELECT email FROM utlisateur');
-$rmdp = $bdd->query('SELECT mdp FROM utlisateur');
+	$database = "piscine";
+	$db_handle = mysqli_connect('localhost', 'root', '');
+	$db_found = mysqli_select_db($db_handle, $database);
+
+
+
 
     
     $email = isset($_POST["email"])?$_POST["email"] : "";
@@ -36,10 +30,34 @@ $rmdp = $bdd->query('SELECT mdp FROM utlisateur');
 		Redirect('index.php?error_message='.$error1.$error2.'<br>Merci de '.$error3, false);
 	}
 	
-	if($email != $remail){$errordeux++;}
-	if($mdp != $rmdp){$errordeux++;}
-	if($errordeux > 0){Redirect('index.php?error_message='.$error4, false);}
-
+	// vérification de la connection
+	$sql = "SELECT mdp FROM utilisateur WHERE email = '$email'";
+	$MDP = mysqli_query($db_handle, $sql);
+	$resultat = $MDP;
+	$a = '$2y$10$QVZh6n7eiX6XLIrgaIpH8.4.vqpyDGCF2bfFfyY/ZwzCDFDbyVSUO';
+	
+	// Comparaison du mdp envoyé via le formulaire avec la base
+	$isPasswordCorrect = password_verify($mdp, $a);
+	
+	if (!$resultat)
+	{	
+		
+		echo 'Mauvais identifiant ou mot de passe !';
+	}
+	else
+	{
+		
+		if ($isPasswordCorrect) {
+			session_start();
+				$_SESSION['id'] = $resultat['id'];
+			$_SESSION['email'] = $email;
+			echo 'Vous êtes connecté !';
+		}
+		else {
+			//echo 'votre mdp est '.$mdp;
+			echo 'Mauvais email ou mot de passe !';
+		}
+	}
 	    function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);

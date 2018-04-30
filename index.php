@@ -3,9 +3,10 @@
     <head>
         <title>projet piscine</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link href="indexcss.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <h2>Connection</h2>
+        <h1>Connection</h1>
         
         <p>
             Veuillez rentrer les information pour vous connecter.<br />   
@@ -22,7 +23,7 @@
         <?php
           }
         ?>
-
+		
         <form action="indextraitement.php" method="post">
           <table id="myTable">
             <tr>
@@ -34,8 +35,6 @@
               <td>Mot de passe:</td>
               <td><input type="password" name="mdp"></td>
             </tr>
-
-           
             </tr>        
               
             <tr>
@@ -44,11 +43,13 @@
 			
           </table>
         </form>
+
+    </body>
+			<div class="inscription">
 		<form action="inscription.php" method="post">
 		<tr>
               <td colspan="10"><input type="submit" value="Inscription"></td>
         </tr>
 		</form>
-
-    </body>
+		</div>
 </html>
