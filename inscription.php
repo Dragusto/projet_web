@@ -4,6 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<h2>Inscription utilisateur</h2>
 	<form action="inscriptionTraitement.php" method="post">
 		<table id="ma Table">
 			<tr>
@@ -24,7 +25,7 @@
 			</tr>
 			<tr>
 				<td> Confirmer mot de passe : </td>
-				<td><input type="password" name="mdp"</td>
+				<td><input type="password" name="mdp1"</td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="Submit" value="Soumettre"/></td>
