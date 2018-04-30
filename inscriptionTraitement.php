@@ -10,19 +10,19 @@
 	$error = "";
 
 	if($nom == ""){
-		$error .= "Nom est vide<br/>";
+		$error .= "Nom est vide, ";
 	}
 
 	if($prenom == ""){
-		$error .= "Prenom est vide<br/>";
+		$error .= "Prenom est vide, ";
 	}
 
 	if($mail == ""){
-		$error .= "Mail est vide<br/>";
+		$error .= "Mail est vide, ";
 	}
 
 	if($mdp == ""){
-		$error .= "Mot de passe vide<br/>";
+		$error .= "Mot de passe vide.";
 	}
 
 	if($mdp != $mdp1){
@@ -35,9 +35,15 @@
 		$connection = true;
 	}
 
+	
 	else{
-		echo "Erreur : $error";
+		Redirect('inscription.php?error_message='.$error, false);
 	}
 
+	function Redirect($url, $permanent = false)
+    {
+        header('Location: ' . $url, true, $permanent ? 301 : 302);
+        exit();
+    }
 	
 ?>
