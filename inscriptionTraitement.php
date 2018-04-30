@@ -6,7 +6,7 @@
 
 	$nom = isset($_POST["nom"])? $_POST["nom"]:"";
 	$prenom = isset($_POST["prenom"])? $_POST["prenom"]:"";
-	$mail = isset($_POST["mail"])? $_POST["mail"]:"";
+	$email = isset($_POST["mail"])? $_POST["mail"]:"";
 	$mdp = isset($_POST["mdp"])? $_POST["mdp"]:"";
 	$mdp1 = isset($_POST["mdp1"])? $_POST["mdp1"]:"";
 
@@ -22,7 +22,7 @@
 		$error .= "Prenom est vide, ";
 	}
 
-	if($mail == ""){
+	if($email == ""){
 		$error .= "Mail est vide, ";
 	}
 
