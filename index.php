@@ -39,7 +39,7 @@
             </tr>        
               
             <tr>
-              <td colspan=10><input type="submit" value="Soumettre"></td>
+              <td colspan="10"><input type="submit" value="Soumettre"></td>
             </tr>
 			
           </table>
