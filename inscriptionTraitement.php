@@ -1,7 +1,7 @@
+<!DOCTYPE html>
+<html>
+
 <?php
-	$database = "piscine";
-	$db_handle = mysqli_connect('localhost','root','root');
-	$db_found = mysqli_select_db($db_handle, $database);
 
 	$nom = isset($_POST["nom"])? $_POST["nom"]:"";
 	$prenom = isset($_POST["prenom"])? $_POST["prenom"]:"";
@@ -13,58 +13,90 @@
 	$error = "";
 
 	if($nom == ""){
-		$error .= "Nom est vide<br/>";
+		$error .= "Nom est vide. ";
 	}
 
 	if($prenom == ""){
-		$error .= "Prenom est vide<br/>";
+		$error .= "Prenom est vide. ";
 	}
 
 	if($email == ""){
-		$error .= "Mail est vide<br/>";
+		$error .= "Email est vide. ";
 	}
 
 	if($mdp == ""){
-		$error .= "Mot de passe vide<br/>";
+		$error .= "Mot de passe est vide. ";
 	}
 
 	if($mdp != $mdp1){
-		$error .= "Les mots de passe sont differents";
+		$error .= "Les mots de passe sont differents. ";
 	}
 
 
 	if($error == ""){
 		echo "Formulaire valide <br/><br/>";
-		$connection = true;	
-		// Hachage du mot de passe
-		$mdp_hache = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+		$database = "piscine";
+		$db_handle = mysqli_connect('localhost','root','root');
+		$db_found = mysqli_select_db($db_handle, $database);
 
-		// Insertion
-		$sql = "INSERT INTO utilisateur(email, mdp, nom, prenom) VALUES('$email','$mdp_hache','$nom','$prenom')";
-		if(mysqli_query($db_handle, $sql))
+		// Hachage du mot de passe
+		//$mdp_hache = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+
+		if($db_found)
 		{
-			echo "utilisateur ajouté";
-		}
+				// Insertion
+				$sql = "INSERT INTO utilisateur2(email, mdp, nom, prenom) VALUES('$email','$mdp','$nom','$prenom')";
+			
+				if(mysqli_query($db_handle, $sql))
+				{
+					echo "Votre compte a bien été créé";
+				}
+			
+				else
+				{
+					echo "ERROR: impossible d'executer $sql. <br>" . mysqli_error($db_handle);
+				}
+			}
+
 		else
 		{
-			echo "utilisateur non ajouté";
+			echo "Database not found <br>";
 		}
 	
 		}
-	else{
-		Redirect('inscription.php?error_message='.$error,false);
+
+	else
+	{
+		//Redirect('inscription.php?error_message='.$error, false);
+		echo $error;
 	}
-		    function Redirect($url, $permanent = false)
-    {
-        header('Location: ' . $url, true, $permanent ? 301 : 302);
-        exit();
-    }
+
+
 
 ?>
 
+	<div id="index">
 
+		<form action="index.php" method="post">
 
+			<tr>
+				<td colspan="2"> <input type="submit" value="Me connecter"\></td>
+			</tr>
 
+		</form>
 
+	</div>
 
+	<div id="inscription">
 
+		<form action="inscription.php" method="post">
+
+			<tr>
+				<td colspan="2"> <input type="submit" value="M'inscrire"\></td>
+			</tr>
+
+		</form>
+
+	</div>
+
+</html>

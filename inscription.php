@@ -1,14 +1,20 @@
+<!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href="indexcss.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
+
 	<h2>Inscription utilisateur</h2>
 	
 	<form action="inscriptionTraitement.php" method="post">
+
 		<table id="ma Table">
+
 			<tr>
 				<td>Nom : </td>
 				<td><input type="text" name="nom"/></td>
@@ -32,7 +38,34 @@
 			<tr>
 				<td colspan="2"><input type="Submit" value="Soumettre"/></td>
 			</tr>
+
 		</table>
+
 	</form>
+
+	<div id="index">
+
+		<p> J'ai déjà un compte ? </p>
+
+		<form action="index.php" method="post">
+
+			<tr>
+				<td colspan="2"> <input type="submit" value="Me connecter"></td>
+			</tr>
+
+		</form>
+
+	</div>
+
 </body>
+
+<div id="footer">
+
+    <p>Droit d'auteur © 2018 Nom du projet</p> 
+    <p> Dernière mise à jour le 30/04/2018 | 
+    <a href="mailto:nomDuProjet@gmail.com">nomDuProjet@gmail.com</a> 
+    </p>
+
+</div>
+
 </html>
