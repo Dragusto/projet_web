@@ -18,7 +18,7 @@
 
 		<nav>
 			<ul>
-				<a href="acceuil.php">Accueil </a>
+				<a href="sommaire.php">Accueil </a>
 				<a href="reseau.php">Reseau </a>
 				<a href="emploi.php">Emploi </a>
 				<a href="messagerie.php">Messagerie </a>
@@ -54,7 +54,7 @@
 					echo "Email: ".$data['email'].'<br>';
 					echo "ID: ".$data['id']."<br><br>";
 				}
-				?>
+			?>
 		</div>
 	</body>
 

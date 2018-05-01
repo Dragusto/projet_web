@@ -16,7 +16,7 @@
 
 		<nav>
 			<ul>
-				<a href="acceuil.php">Accueil </a>
+				<a href="sommaire.php">Accueil </a>
 				<a href="reseau.php">Reseau </a>
 				<a href="emploi.php">Emploi </a>
 				<a href="messagerie.php">Messagerie </a>
@@ -67,17 +67,16 @@ Habiter une ville, c’est y tisser par ses allées et venues journalières un l
 23La forme du texte racinien, c’est un jardin aux sentiers qui bifurquent.</p>
 	</section>
 	
-	
+	<div id="footer">
+
+    	<p>Droit d'auteur © 2018 Nom du projet</p> 
+    	<p> Dernière mise à jour le 30/04/2018 | 
+    	<a href="mailto:nomDuProjet@gmail.com">nomDuProjet@gmail.com</a> 
+    	</p>
+
+    </div>
 	
 	</body>
 	
-    <div id="footer">
-
-        <p>Droit d'auteur © 2018 Nom du projet</p> 
-        <p> Dernière mise à jour le 30/04/2018 | 
-        <a href="mailto:nomDuProjet@gmail.com">nomDuProjet@gmail.com</a> 
-        </p>
-
-    </div>
 	
 </html>
