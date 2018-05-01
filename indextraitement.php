@@ -1,4 +1,6 @@
-﻿<?php
+﻿<!DOCTYPE html>
+<html>
+<?php
 	$database = "piscine";
 	$db_handle = mysqli_connect('localhost', 'root', '');
 	$db_found = mysqli_select_db($db_handle, $database);
@@ -49,9 +51,9 @@
 		
 		if ($isPasswordCorrect) {
 			//echo "vous etes connecter";
-			
-			include('sommaire.php');
-			
+		?>	
+			<meta http-equiv="refresh" content="1;sommaire.php"/>
+		<?php	
 			
 		}
 		else {
@@ -65,3 +67,4 @@
         exit();
     }
 ?>
+</html>

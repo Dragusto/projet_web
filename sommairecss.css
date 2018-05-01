@@ -1,6 +1,45 @@
-.menu
+nav
 {
-   /* postulat de départ */
-  top: 5%; left: 50%; /* à 50%/50% du parent référent */
+   position: fixed;/* postulat de départ */
+  top: 5%; left: 50%;  /* à 50%/50% du parent référent */
   transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+  background-color:#2b95ff;
 }
+
+
+
+.titre
+{
+	position: fixed;
+	top: 5%; left: 8%;
+	transform: translate(-50%, -50%);
+	color:#48751A;
+}
+
+.publi
+{
+	position: fixed;
+	top: 20%;
+	right: 20%;
+	left: 20%;
+	bottom: 60%;
+	background-color: #000000;
+}
+
+
+
+body
+{
+	background-color:#0FFFF8;
+}
+
+section
+{
+	position: absolute;
+	left: 15%;
+	right: 15%;
+	top: 40%;
+	bottom: 15%;
+	color:#48751A;
+}
+
