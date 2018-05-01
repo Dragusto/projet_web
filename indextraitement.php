@@ -48,10 +48,7 @@
 	{
 		
 		if ($isPasswordCorrect) {
-			session_start();
-				$_SESSION['id'] = $resultat['id'];
-			$_SESSION['email'] = $email;
-			echo 'Vous êtes connecté !';
+			<a href="sommaire.html"></a>
 		}
 		else {
 			//echo 'votre mdp est '.$mdp;
