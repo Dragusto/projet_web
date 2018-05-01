@@ -1,64 +1,79 @@
 <!DOCTYPE html>
+
 <html>
+
     <head>
-        <title>projet piscine</title>
+
+        <title>Projet piscine !!</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<link href="indexcss.css" rel="stylesheet" type="text/css" />
 
     </head>
+
     <body>
+
         <h1>Connection</h1>
         
-        <p>
-            Veuillez rentrer les information pour vous connecter.<br />   
-        </p>
+        <p>Veuillez vous identifier<br /></p>
 
+        <!-- Ceci permet d'afficher les champs non remplis sans changer de page -->
         <?php
-          if(isset($_GET["error_message"]))
-          {
-             $error_message = $_GET["error_message"];
+            if(isset($_GET["error_message"]))
+            {
+              $error_message = $_GET["error_message"];
         ?>
-          <p style = "color : red"> 
-          <?php echo $error_message; ?>
-          </p>
-        <?php
-          }
-        ?>
-		
+        
+        <p style = "color : red"> <?php echo $error_message; ?></p>
+          
+        <?php } ?>
+
+
+
         <form action="indextraitement.php" method="post">
-          <table id="myTable">
+
+            <div class="table">
+            <table id="myTable">
+
             <tr>
-              <td>Email</td>
+              <td>Email:</td>
               <td><input type="text" name="email"></td>
             </tr>
 
             <tr>
               <td>Mot de passe:</td>
               <td><input type="password" name="mdp"></td>
-            </tr>
-            </tr>        
+            </tr>       
               
             <tr>
-              <td colspan="10"><input type="submit" value="Soumettre"></td>
+              <td colspan="10"><input type="submit" value="Me connecter"></td>
 			  <a href="sommaire.html"></a>
             </tr>
 			
-          </table>
+            </table>
+            </div>
         </form>
 
     </body>
-			<div class="inscription">
-		<form action="inscription.php" method="post">
-		<tr>
-              <td colspan="10"><input type="submit" value="Inscription"></td>
+
+    <div class="inscription">
+		
+        <form action="inscription.php" method="post">
+		
+        <tr>
+              <td colspan="10"><input type="submit" value="M'inscrire"></td>
         </tr>
-		</form>
-		</div>
+		
+        </form>
 	
-		
+    </div>
 	
-			
-		
-		
+    <div id="footer">
+
+        <p>Droit d'auteur © 2018 Nom du projet</p> 
+        <p> Dernière mise à jour le 30/04/2018 | 
+        <a href="mailto:nomDuProjet@gmail.com">nomDuProjet@gmail.com</a> 
+        </p>
+
+    </div>
 			
 </html>

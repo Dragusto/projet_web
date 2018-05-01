@@ -6,6 +6,12 @@ body
 	width: 50%;
 	background-color: aqua;
 	text-align: center;
+	padding-top: 200px;
+}
+
+#table
+{
+	text-align: center;
 }
 
 
@@ -15,10 +21,16 @@ head
 	color:blue;
 	text-align: center;
 }
-.inscription
+
+#inscription
 {
   position: absolute; /* postulat de départ */
   top: 5%; left: 90%; /* à 50%/50% du parent référent */
   transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
 }
 
+#footer
+{
+	padding-top: 180px;
+	text-align: center;
+}
