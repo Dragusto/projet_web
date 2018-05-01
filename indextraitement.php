@@ -17,7 +17,7 @@
 	$error4 = "Combinaison email et mot de passe invalide";
     $errorun = 0;
     $errordeux = 0;
-    
+    $connec = false;
 	
     if($email == "") {$error2 = $error2." adresse mail -"; $errorun++;}
     if($mdp == "") {$error2 = $error2." mot de passe "; $errorun++;}
@@ -48,14 +48,15 @@
 	{
 		
 		if ($isPasswordCorrect) {
-			session_start();
-				$_SESSION['id'] = $resultat['id'];
-			$_SESSION['email'] = $email;
-			echo 'Vous êtes connecté !';
+			//echo "vous etes connecter";
+			
+			include('sommaire.php');
+			
+			
 		}
 		else {
 			//echo 'votre mdp est '.$mdp;
-			echo 'Mauvais email ou mot de passe !';
+			Redirect('index.php?error_message='.'<br>email ou mot de passe faux ', false);
 		}
 	}
 	    function Redirect($url, $permanent = false)
