@@ -1,6 +1,6 @@
 <?php
 	$database = "piscine";
-	$db_handle = mysqli_connect('localhost','root','');
+	$db_handle = mysqli_connect('localhost','root','root');
 	$db_found = mysqli_select_db($db_handle, $database);
 
 	$nom = isset($_POST["nom"])? $_POST["nom"]:"";
@@ -8,7 +8,6 @@
 	$email = isset($_POST["email"])? $_POST["email"]:"";
 	$mdp = isset($_POST["mdp"])? $_POST["mdp"]:"";
 	$mdp1 = isset($_POST["mdp1"])? $_POST["mdp1"]:"";
-
 
 	$connection = false;
 	$error = "";
@@ -36,7 +35,7 @@
 
 	if($error == ""){
 		echo "Formulaire valide <br/><br/>";
-		
+		$connection = true;	
 		// Hachage du mot de passe
 		$mdp_hache = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
 
@@ -50,10 +49,10 @@
 		{
 			echo "utilisateur non ajouté";
 		}
-		$connection = true;		
+	
 		}
 	else{
-		Redirect('inscription.php?error='.$error,false);
+		Redirect('inscription.php?error_message='.$error,false);
 	}
 		    function Redirect($url, $permanent = false)
     {
