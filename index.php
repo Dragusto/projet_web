@@ -8,11 +8,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<link href="css/indexcss.css" rel="stylesheet" type="text/css" />
 
+        <h1>Connection</h1>
+
     </head>
 
     <body>
 
-        <h1>Connection</h1>
         
         <p>Veuillez vous identifier<br /></p>
 
