@@ -1,12 +1,21 @@
 nav
 {
-  position: fixed;
-  top: 5%; left: 50%;
-  transform: translate(-50%, -50%);
+   position: fixed;/* postulat de départ */
+  top: 5%; left: 50%;  /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
   background-color:#2b95ff;
 }
 
-#titre
+header
+{	
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	right: 0%;
+	bottom: 70%;
+}
+
+.titre
 {
 	position: fixed;
 	top: 5%; left: 8%;
@@ -14,30 +23,37 @@ nav
 	color:#48751A;
 }
 
-#monReseau
+
+.pr
 {
-	/*position: absolute;
-	left: 15%;
-	right: 15%;
-	top: 40%;
+	position: fixed;
+	top: 20%;
+	right: 87%;
+	left: 2%;
 	bottom: 15%;
-	/*color:#48751A;*/
-	text-align: center;
+	flex: 1.2;
+    background-color: #706b64;
+    padding: 10px;
+    color: white;
+    font-size: 0.9em;
 }
 
-#titre2
-{
-	padding-top: 50px;
-	padding-left: 100px;
-}
+
 
 body
 {
-	background-color:#0FFFF8;
+	position: absolute;
+	left: 20%;
+	right: 15%;
+	top: 15%;
+	bottom: 15%;
+	color:#48751A;
+	background-color: #0FFFF8;
 }
 
 #footer
 {
-	padding-top: 180px;
+	padding-top: 35%;
 	text-align: center;
+	
 }
