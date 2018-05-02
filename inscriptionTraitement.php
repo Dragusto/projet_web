@@ -36,7 +36,7 @@
 	if($error == ""){
 		echo "Formulaire valide <br/><br/>";
 		$database = "piscine";
-		$db_handle = mysqli_connect('localhost','root','');
+		$db_handle = mysqli_connect('localhost','root','root');
 		$db_found = mysqli_select_db($db_handle, $database);
 		
 		
@@ -50,7 +50,7 @@
 			
 				if(mysqli_query($db_handle, $sql))
 				{
-					echo "Votre compte a bien été créé";
+					echo "Votre compte a bien été créé <br>";
 				}
 			
 				else
@@ -65,7 +65,7 @@
 		
 			if(mysqli_query($db_handle, "INSERT INTO membre(id, email, nom, prenom) VALUES('$id','$email','$nom','$prenom')"))
 			{
-				echo "membre créer";			
+				echo "Membre créé";			
 			}
 			else{
 				Redirect('inscription.php?error_message='.'<br>Erreur création du compte', false);

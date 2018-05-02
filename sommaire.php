@@ -3,25 +3,24 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html>
-<?php
+	<?php
 	$database = "piscine";
-	$db_handle = mysqli_connect('localhost', 'root', '');
+	$db_handle = mysqli_connect('localhost', 'root', 'root');
 	$db_found = mysqli_select_db($db_handle, $database);
 	
 	$id = $_SESSION['id'];
-$sql = "SELECT * FROM membre WHERE id = '$id'";
-$tab = mysqli_query($db_handle, $sql);
-$row= mysqli_fetch_array($tab);
-$nom = $row['nom'];
-$prenom = $row['prenom'];
-$job = $row['travail'];
-
-?>
+	$sql = "SELECT * FROM membre WHERE id = '$id'";
+	$tab = mysqli_query($db_handle, $sql);
+	$row= mysqli_fetch_array($tab);
+	$nom = $row['nom'];
+	$prenom = $row['prenom'];
+	$job = $row['travail'];
+	?>
 
     <head>
         <title>Nom du projet</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<link href="sommairecss.css" rel="stylesheet" type="text/css" />
+		<link href="css/sommairecss.css" rel="stylesheet" type="text/css" />
     </head>
 
 	<header>
