@@ -1,6 +1,22 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
-
 <html>
+<?php
+	$database = "piscine";
+	$db_handle = mysqli_connect('localhost', 'root', '');
+	$db_found = mysqli_select_db($db_handle, $database);
+	
+	$id = $_SESSION['id'];
+$sql = "SELECT * FROM membre WHERE id = '$id'";
+$tab = mysqli_query($db_handle, $sql);
+$row= mysqli_fetch_array($tab);
+$nom = $row['nom'];
+$prenom = $row['prenom'];
+$job = $row['travail'];
+
+?>
 
     <head>
         <title>Nom du projet</title>
@@ -25,12 +41,17 @@
 			</ul>
 		</nav>
 
+		<div class="publi">
+			<p>Voici la ou on va publier</p>
+		</div>
+		<div class="pr">
+			<?php echo $nom;?> <br />
+			<?php echo $prenom; ?><br />
+			<?php if (!$job){}else{echo $job;}?>
+		</div>
 	</header>
 			
-	<div class="publi">
-		<p>Voici la ou on va publier</p>
-	</div>
-	
+
 	
     <body>
 	

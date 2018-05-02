@@ -36,16 +36,17 @@
 	if($error == ""){
 		echo "Formulaire valide <br/><br/>";
 		$database = "piscine";
-		$db_handle = mysqli_connect('localhost','root','root');
+		$db_handle = mysqli_connect('localhost','root','');
 		$db_found = mysqli_select_db($db_handle, $database);
-
+		
+		
 		// Hachage du mot de passe
-		//$mdp_hache = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+		$mdp_hache = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
 
 		if($db_found)
 		{
 				// Insertion
-				$sql = "INSERT INTO utilisateur2(email, mdp, nom, prenom) VALUES('$email','$mdp','$nom','$prenom')";
+				$sql = "INSERT INTO utilisateur(email, mdp, nom, prenom) VALUES('$email','$mdp_hache','$nom','$prenom')";
 			
 				if(mysqli_query($db_handle, $sql))
 				{
@@ -56,7 +57,20 @@
 				{
 					echo "ERROR: impossible d'executer $sql. <br>" . mysqli_error($db_handle);
 				}
+		
+			$sql1 = "SELECT id FROM utilisateur WHERE email = '$email'";
+			$tab = mysqli_query($db_handle, $sql1);
+			$row= mysqli_fetch_array($tab);
+			$id = $row['id'];
+		
+			if(mysqli_query($db_handle, "INSERT INTO membre(id, email, nom, prenom) VALUES('$id','$email','$nom','$prenom')"))
+			{
+				echo "membre créer";			
 			}
+			else{
+				Redirect('inscription.php?error_message='.'<br>Erreur création du compte', false);
+			}
+		}
 
 		else
 		{
@@ -67,10 +81,13 @@
 
 	else
 	{
-		//Redirect('inscription.php?error_message='.$error, false);
-		echo $error;
+		Redirect('index.php?error_message='.'<br>Veuillez remplir tous les champs', false);
 	}
-
+		function Redirect($url, $permanent = false)
+    {
+        header('Location: ' . $url, true, $permanent ? 301 : 302);
+        exit();
+    }
 
 
 ?>

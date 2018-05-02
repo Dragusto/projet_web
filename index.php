@@ -6,7 +6,7 @@
 
         <title>Projet piscine !!</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<link href="indexcss.css" rel="stylesheet" type="text/css" />
+		<link href="css/indexcss.css" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -46,7 +46,7 @@
               
             <tr>
               <td colspan="10"><input type="submit" value="Me connecter"></td>
-			  <a href="sommaire.html"></a>
+			  <a href="sommaire.php"></a>
             </tr>
 			
             </table>

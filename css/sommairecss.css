@@ -6,6 +6,11 @@ nav
   background-color:#2b95ff;
 }
 
+header
+{
+	position: fixed;
+}
+
 
 
 .titre
@@ -24,6 +29,20 @@ nav
 	left: 20%;
 	bottom: 60%;
 	background-color: #000000;
+}
+
+.pr
+{
+	position: fixed;
+	top: 20%;
+	right: 87%;
+	left: 2%;
+	bottom: 15%;
+	flex: 1.2;
+    background-color: #706b64;
+    padding: 10px;
+    color: white;
+    font-size: 0.9em;
 }
 
 

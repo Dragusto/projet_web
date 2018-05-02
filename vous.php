@@ -1,12 +1,31 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
-
 <html>
+<?php
+	$database = "piscine";
+	$db_handle = mysqli_connect('localhost', 'root', '');
+	$db_found = mysqli_select_db($db_handle, $database);
+	
+$id = $_SESSION['id'];
+$sql = "SELECT * FROM membre WHERE id = '$id'";
+$tab = mysqli_query($db_handle, $sql);
+$row= mysqli_fetch_array($tab);
+$nom = $row['nom'];
+$prenom = $row['prenom'];
+$email = $row['email'];
+$job = $row['travail'];
+$birth = $row['date de naissance'];
+$city = $row['ville'];
+$adresse = $row['adresse'];
+?>
 
 	<head>
 
 		<title>Nom du projet</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<link href="vouscss.css" rel="stylesheet" type="text/css">
+		<link href="css/vouscss.css" rel="stylesheet" type="text/css">
 
 	</head>
 
