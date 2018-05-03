@@ -4,7 +4,7 @@
 
 	<head>
 
-		<title>Nom du projet</title>
+		<title>ECEconnect</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<link href="css/reseaucss.css" rel="stylesheet" type="text/css">
 
@@ -13,7 +13,7 @@
 	<header>
 
 		<div id="titre">
-			<h1>Nom du projet</h1>
+			<h1>ECEconnect</h1>
 		</div>
 
 		<nav>

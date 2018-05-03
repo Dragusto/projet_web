@@ -3,7 +3,9 @@
 
 	<head>
 
-    <title>Upload d'une image sur le serveur !</title>
+    	<title>Upload d'une image sur le serveur !</title>
+    	<link href="css/parametrecss.css" rel="stylesheet" type="text/css" />
+    	<h1> Paramètres </h1>
 
 	</head>
 
@@ -235,5 +237,18 @@
     
 
   	</body>
+
+
+  	<div id="footer">
+
+        <p>Droit d'auteur Giot Chabennet © 2018 ECEconnect</p> 
+
+        <p> Dernière mise à jour le 2/05/2018 |
+
+        <a href="mailto:ECEconnect@gmail.com">ECEconnect@gmail.com</a> 
+        
+        </p>
+
+    </div>
 
 </html>

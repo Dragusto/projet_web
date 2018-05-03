@@ -35,7 +35,7 @@ session_start();
 	<header>
 
         <div id="titre">
-            <h1>Nom du projet</h1>     
+            <h1>ECEconnect</h1>     
         </div>
 
 		<nav>

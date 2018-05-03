@@ -21,7 +21,7 @@ session_start();
 
     <head>
 
-        <title>Nom du projet</title>
+        <title>ECEconnect</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<link href="css/sommairecss.css" rel="stylesheet" type="text/css" />
 

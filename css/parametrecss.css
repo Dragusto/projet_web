@@ -1,0 +1,29 @@
+head{
+	font-size: 40px;
+	color:blue;
+	text-align: center;
+}
+
+
+body
+{		
+	margin-left: auto;
+	margin-right: auto;
+	height: 30%;
+	width: 50%;
+	background-color: aqua;
+	text-align: center;
+	padding-top: 100px;
+}
+
+#table
+{
+	text-align: center;
+}
+
+
+#footer
+{
+	padding-bottom: 5px;
+	text-align: center;
+}
