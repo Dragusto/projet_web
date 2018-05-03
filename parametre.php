@@ -28,6 +28,10 @@ $birth = $row['date_de_naissance'];
      if ($birth){}
 	 else
 	 {?>
+	<tr>
+        <td colspan="10"><input type="submit" value="Retour"></td>
+		<a href="vous.php"></a>
+    </tr>
 	
 	 <form enctype="multipart/form-data" action="parametreBirth.php" method="post">
     <fieldset>

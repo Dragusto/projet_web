@@ -53,10 +53,10 @@ session_start();
 		</div>
 
 		<div class="pr">
-
-			<?php echo $nom;?> <br />
-			<?php echo $prenom; ?><br />
-			<?php if (!$job){}else{echo $job;}?>
+			<p><img src = profil/<?php echo $id;?>></p>
+			<p><?php echo $nom;?> </p>
+			<p><?php echo $prenom; ?></p>
+			<p><?php if (!$job){}else{echo $job;}?></p>
 
 		</div>
 
