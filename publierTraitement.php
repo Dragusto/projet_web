@@ -4,29 +4,29 @@
 <?php
 
 	$titre = isset($_POST["titre"])? $_POST["titre"]:"";
-	<!--$date = isset($_POST["date"])? $_POST["date"]:"";
-	$date-poste = isset($_POST["date-poste"])? $_POST["date-poste"]:"";
+	$date1 = isset($_POST["date1"])? $_POST["date1"]:"";
+	$datep = isset($_POST["datep"])? $_POST["datep"]:"";
 	$heure = isset($_POST["heure"])? $_POST["heure"]:"";
 
 	$connection = false;
-	$error = "";-->
+	$error = "";
 
 	if($titre == ""){
 		$error .= "Titre est vide. ";
 	}
-<!--
-	if($date == ""){
+
+	if($date1 == ""){
 		$error .= "Date est vide. ";
 	}
 
-	if($date-poste == ""){
+	if($datep == ""){
 		$error .= "Date-poste est vide. ";
 	}
 
 	if($heure == ""){
 		$error .= "Heure est vide. ";
 	}
--->
+
 
 	if($error == "")
 	{
@@ -38,10 +38,8 @@
 
 		if($db_found)
 		{
-				<!-- Insertion -->
-				<!--$sql = "INSERT INTO evenement(date, titre, date-poste, heure) VALUES('$date','$titre','$date-poste','$heure')";-->
-
-				$sql = "INSERT INTO event(titre) VALUES('$titre')";
+				// Insertion
+				$sql = "INSERT INTO evenement(date_event, titre, date_poste, heure) VALUES('$date1','$titre',$datep ,'$heure')";
 			
 				if(mysqli_query($db_handle, $sql))
 				{

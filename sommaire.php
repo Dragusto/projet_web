@@ -69,7 +69,32 @@ session_start();
 
 	<section>
 
+			<div id="titre2">
 
+				<h2>Fil d'actualités</h2>
+
+			</div>
+
+			<?php
+
+				$database = "piscine";
+				$db_handle = mysqli_connect('localhost','root','root');
+				$db_found = mysqli_select_db($db_handle, $database);
+
+
+				$sql = "SELECT * FROM evenement";
+				$result = mysqli_query($db_handle, $sql);
+
+
+				while($data = mysqli_fetch_assoc($result))		
+				{												
+					echo "Titre de l'evenement: ".$data['titre'].'<br>';
+					echo "Date de l'evenement: ".$data['date_event'].'<br>';
+					echo "Date publié: ".$data['date_poste'].'<br>';
+					echo "Heure publié: ".$data['heure'].'h<br><br>';
+				}
+
+			?>
 
 	</section>
 	

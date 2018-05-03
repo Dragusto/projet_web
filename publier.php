@@ -32,20 +32,20 @@
 					<td><input type="text" name="titre"/></td>
 				</tr>
 
-				<!-- <tr>
+				<tr>
 					<td>Date de l'evenement : </td>
-					<td><input type="date" name="date"/></td>
+					<td><input type="date" name="date1"/></td>
 				</tr>
 
 				<tr>
 					<td>Date poste : </td>
-					<td><input type="date" name="date-poste"/></td>
+					<td><input type="date" name="datep"/></td>
 				</tr>
 
 				<tr>
 					<td>Heure poste : </td>
-					<td><input type="number" name="heure"</td>
-				</tr> -->
+					<td><input type="number" name="heure"></td>
+				</tr>
 
 				<tr>
 					<td colspan="2"><input type="Submit" value="Publier"/></td>
