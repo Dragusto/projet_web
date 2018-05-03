@@ -1,8 +1,10 @@
 ﻿<?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html>
+
 <?php
 	$database = "piscine";
 	$db_handle = mysqli_connect('localhost', 'root', 'root');
@@ -29,7 +31,7 @@ session_start();
     if($errorun > 1) {$error1 = "Il manque les champs : ";}    
     if($errorun > 0)
 	{
-		Redirect('index.php?error_message='.$error1.$error2., false);
+		Redirect('index.php?error_message='.$error1.$error2, false);
 	}
 	
 	// vérification de la connection
