@@ -307,6 +307,36 @@ $birth = $row['date_de_naissance'];
 		</p>
 	  </fieldset>
     </form>
+	<p>
+	</p>
+	
+	   <form enctype="multipart/form-data" action="parametreCV.php" method="post">
+    <fieldset>
+          <p>
+            <label for="CV_uploader" title="Recherchez le CV à uploader !">Envoyer le fichier :</label>
+            <input name="fichier" type="file" id="fichier_a_uploader" />
+            <input type="submit" name="submit" value="Uploader" />
+			<?php
+            if(isset($_GET["error_message6"]))
+            {
+              $error_message6 = $_GET["error_message6"];
+			?>
+        
+			<p style = "color : red"> <?php echo $error_message6; ?></p>
+          
+        <?php } ?>
+		<?php
+            if(isset($_GET["message6"]))
+            {
+              $message6 = $_GET["message6"];
+        ?>
+        
+        <p style = "color : green"> <?php echo $message6; ?></p>
+          
+        <?php } ?>
+          </p>
+      </fieldset>
+    </form>
   </body>
     <div id="footer">
         <p>Droit d'auteur Giot Chabennet © 2018 ECEconnect</p> 

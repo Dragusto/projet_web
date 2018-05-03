@@ -44,7 +44,8 @@ $adresse = $row['adresse'];
 		
 	</header>
 	<div class="pr">
-		<a href="parametre.php">Paramètre</a>
+		<p><a href="parametre.php">Paramètre</a></p>
+		<p><a href="CV.php.php">Curriculum vitae</a></p>
 	</div>
 	
 
