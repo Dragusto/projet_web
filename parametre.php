@@ -15,8 +15,20 @@ $row= mysqli_fetch_array($tab);
 $birth = $row['date_de_naissance'];
 ?>
   <head>
-    <title>Upload d'une image sur le serveur !</title>
+    <title>Changement de données</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="css/vouscss.css" media="screen" type="text/css">
   </head>
+  	<nav>
+		<ul>
+			<a href="sommaire.php">Acceuil </a>
+			<a href="reseau.php">Reseau </a>
+			<a href="emploi.php">Emploi </a>
+			<a href="messagerie.php">Messagerie </a>
+			<a href="notification.php">Notification </a>
+			<a href="vous.php">Profil </a>
+		</ul>
+	</nav>
   <body>
  <?php
       if( !empty($message) ) 
@@ -28,12 +40,12 @@ $birth = $row['date_de_naissance'];
      if ($birth){}
 	 else
 	 {?>
-	<tr>
-        <td colspan="10"><input type="submit" value="Retour"></td>
-		<a href="vous.php"></a>
-    </tr>
+	    <tr>
+			<td colspan="2"><input type="submit" value="Retour profil"></td>
+			<a href="vous.php"></a>
+		</tr>
 	
-	 <form enctype="multipart/form-data" action="parametreBirth.php" method="post">
+	<form enctype="multipart/form-data" action="parametreBirth.php" method="post">
     <fieldset>
 		<p>
 		<table>
@@ -99,7 +111,7 @@ $birth = $row['date_de_naissance'];
 	   <form enctype="multipart/form-data" action="parametreImage.php" method="post">
     <fieldset>
           <p>
-            <label for="fichier_a_uploader" title="Recherchez le fichier à uploader !">Envoyer le fichier :</label>
+            <label for="fichier_a_uploader" title="Recherchez le fichier à uploader !">Changer de photo de profil :</label>
             <input name="fichier" type="file" id="fichier_a_uploader" />
             <input type="submit" name="submit" value="Uploader" />
 			<?php
@@ -313,7 +325,7 @@ $birth = $row['date_de_naissance'];
 	   <form enctype="multipart/form-data" action="parametreCV.php" method="post">
     <fieldset>
           <p>
-            <label for="CV_uploader" title="Recherchez le CV à uploader !">Envoyer le fichier :</label>
+            <label for="CV_uploader" title="Recherchez le CV à uploader !">Curiculum Vitae :</label>
             <input name="fichier" type="file" id="fichier_a_uploader" />
             <input type="submit" name="submit" value="Uploader" />
 			<?php

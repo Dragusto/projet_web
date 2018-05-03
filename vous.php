@@ -45,13 +45,16 @@ $adresse = $row['adresse'];
 	</header>
 	<div class="pr">
 		<p><a href="parametre.php">Paramètre</a></p>
-		<p><a href="CV.php.php">Curriculum vitae</a></p>
+		<?php 
+		$chemin = 'CV/'.$id.'.pdf';
+		if (is_file($chemin))
+		{?>
+		<p><a href="CV/<?php echo $id.".pdf";?>">Curriculum vitae</a></p>
+		<?php } ?>
 	</div>
 	
 
-	
-	<body>
-		<div id="pro">
+	<div id="pro">
 	<p><img src = profil/<?php echo $id;?>></p>
 		<p> Nom : <?php echo $nom; ?> </p>
 		<p> Prénom : <?php echo $prenom; ?> </p>
@@ -62,6 +65,8 @@ $adresse = $row['adresse'];
 		if(!$birth){}
 		else{ echo 'Date de naissance : '.$birth;}?><p> </p>
 		</div>
+	<body>
+		
 	</body>
 	<div id="footer">
 
