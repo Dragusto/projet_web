@@ -1,35 +1,40 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html>
+
 	<?php
-	$database = "piscine";
-	$db_handle = mysqli_connect('localhost', 'root', 'root');
-	$db_found = mysqli_select_db($db_handle, $database);
+		$database = "piscine";
+		$db_handle = mysqli_connect('localhost', 'root', 'root');
+		$db_found = mysqli_select_db($db_handle, $database);
 	
-	$id = $_SESSION['id'];
-	$sql = "SELECT * FROM membre WHERE id = '$id'";
-	$tab = mysqli_query($db_handle, $sql);
-	$row= mysqli_fetch_array($tab);
-	$nom = $row['nom'];
-	$prenom = $row['prenom'];
-	$job = $row['travail'];
+		$id = $_SESSION['id'];
+		$sql = "SELECT * FROM membre WHERE id = '$id'";
+		$tab = mysqli_query($db_handle, $sql);
+		$row= mysqli_fetch_array($tab);
+		$nom = $row['nom'];
+		$prenom = $row['prenom'];
+		$job = $row['travail'];
 	?>
 
     <head>
+
         <title>Nom du projet</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<link href="css/sommairecss.css" rel="stylesheet" type="text/css" />
+
     </head>
 
 	<header>
 
         <div id="titre">
-            <h1>Nom du projet</h1>     
+            <h1>ECE connect</h1>     
         </div>
 
 		<nav>
+
 			<ul>
 				<a href="sommaire.php">Accueil </a>
 				<a href="reseau.php">Reseau </a>
@@ -38,16 +43,23 @@ session_start();
 				<a href="notification.php">Notification </a>
 				<a href="vous.php">Profil </a>
 			</ul>
+
 		</nav>
 
 		<div class="publi">
+
 			<p>Voici la ou on va publier</p>
+			
 		</div>
+
 		<div class="pr">
+
 			<?php echo $nom;?> <br />
 			<?php echo $prenom; ?><br />
 			<?php if (!$job){}else{echo $job;}?>
+
 		</div>
+
 	</header>
 			
 
@@ -89,10 +101,13 @@ Habiter une ville, c’est y tisser par ses allées et venues journalières un l
 	
 	<div id="footer">
 
-    	<p>Droit d'auteur © 2018 Nom du projet</p> 
-    	<p> Dernière mise à jour le 30/04/2018 | 
-    	<a href="mailto:nomDuProjet@gmail.com">nomDuProjet@gmail.com</a> 
-    	</p>
+        <p>Droit d'auteur Giot Chabennet © 2018 ECEconnect</p> 
+
+        <p> Dernière mise à jour le 2/05/2018 |
+
+        <a href="mailto:ECEconnect@gmail.com">ECEconnect@gmail.com</a> 
+        
+        </p>
 
     </div>
 	

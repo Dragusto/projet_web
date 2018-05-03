@@ -5,7 +5,7 @@ session_start();
 <html>
 <?php
 	$database = "piscine";
-	$db_handle = mysqli_connect('localhost', 'root', '');
+	$db_handle = mysqli_connect('localhost', 'root', 'root');
 	$db_found = mysqli_select_db($db_handle, $database);
 
     
@@ -25,11 +25,11 @@ session_start();
     if($mdp == "") {$error2 = $error2." mot de passe "; $errorun++;}
     
 
-    if($errorun > 0) {$error1 = "Il manque le champ : "; $error3 = "le remplir.";}
-    if($errorun > 1) {$error1 = "Il manque les champs : "; $error3 = "les remplir.";}    
+    if($errorun > 0) {$error1 = "Il manque le champ : ";}
+    if($errorun > 1) {$error1 = "Il manque les champs : ";}    
     if($errorun > 0)
 	{
-		Redirect('index.php?error_message='.$error1.$error2.'<br>Merci de '.$error3, false);
+		Redirect('index.php?error_message='.$error1.$error2., false);
 	}
 	
 	// vérification de la connection
@@ -42,14 +42,14 @@ session_start();
 	$isPasswordCorrect = password_verify($mdp, $MDP);
 	if (!$MDP)
 	{	
-		
 		echo 'Mauvais identifiant ou mot de passe !';
 	}
 	else
 	{
 		
 		if ($isPasswordCorrect) {
-			//echo "vous etes connecter"
+
+			//echo "vous etes connectes"
 			$sql = "SELECT id FROM utilisateur WHERE email = '$email'";
 			$tab = mysqli_query($db_handle, $sql);
 			$row= mysqli_fetch_array($tab);
@@ -58,17 +58,23 @@ session_start();
 			?>
 				<meta http-equiv="refresh" content="1;sommaire.php"/>
 			<?php
-			
-			
+
 		}
 		else {
+
 			//echo 'votre mdp est '.$mdp;
+
 			Redirect('index.php?error_message='.'<br>Erreur email ou mot de passe', false);
+
 		}
 	}
+
+
 	    function Redirect($url, $permanent = false)
     {
+
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
+        
     }
 ?>

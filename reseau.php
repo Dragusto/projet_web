@@ -60,10 +60,14 @@
 
 	<div id="footer">
 
-			<p>Droit d'auteur © 2018 Nom du projet</p> 
-			<p> Dernière mise à jour le 30/04/2018 | 
-				<a href="mailto:nomDuProjet@gmail.com">nomDuProjet@gmail.com</a> 
-			</p>
+        <p>Droit d'auteur Giot Chabennet © 2018 ECEconnect</p> 
+
+        <p> Dernière mise à jour le 2/05/2018 |
+
+        <a href="mailto:ECEconnect@gmail.com">ECEconnect@gmail.com</a> 
+        
+        </p>
 
 	</div>
+	
 </html>

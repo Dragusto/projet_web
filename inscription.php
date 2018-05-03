@@ -34,22 +34,27 @@ session_start();
 				<td>Nom : </td>
 				<td><input type="text" name="nom"/></td>
 			</tr>
+
 			<tr>
 				<td>Prenom : </td>
 				<td><input type="text" name="prenom"/></td>
 			</tr>
+
 			<tr>
 				<td>Adresse mail : </td>
 				<td><input type="text" name="email"/></td>
 			</tr>
+
 			<tr>
 				<td>Mot de passe : </td>
 				<td><input type="password" name="mdp"</td>
 			</tr>
+
 			<tr>
 				<td> Confirmer mot de passe : </td>
 				<td><input type="password" name="mdp1"</td>
 			</tr>
+
 			<tr>
 				<td colspan="2"><input type="Submit" value="Soumettre"/></td>
 			</tr>
@@ -76,10 +81,13 @@ session_start();
 
 <div id="footer">
 
-    <p>Droit d'auteur © 2018 Nom du projet</p> 
-    <p> Dernière mise à jour le 30/04/2018 | 
-    <a href="mailto:nomDuProjet@gmail.com">nomDuProjet@gmail.com</a> 
-    </p>
+        <p>Droit d'auteur Giot Chabennet © 2018 ECEconnect</p> 
+
+        <p> Dernière mise à jour le 2/05/2018 |
+
+        <a href="mailto:ECEconnect@gmail.com">ECEconnect@gmail.com</a> 
+        
+        </p>
 
 </div>
 

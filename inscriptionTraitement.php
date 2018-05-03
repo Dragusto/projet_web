@@ -33,10 +33,11 @@
 	}
 
 
-	if($error == ""){
+	if($error == "")
+	{
 		echo "Formulaire valide <br/><br/>";
 		$database = "piscine";
-		$db_handle = mysqli_connect('localhost','root','');
+		$db_handle = mysqli_connect('localhost','root','root');
 		$db_found = mysqli_select_db($db_handle, $database);
 		
 		
@@ -55,7 +56,7 @@
 			
 				else
 				{
-					echo "ERROR: impossible d'executer $sql. <br>" . mysqli_error($db_handle);
+					echo "ERROR: impossible d'executer la requete $sql. <br>" . mysqli_error($db_handle);
 				}
 		
 			$sql1 = "SELECT id FROM utilisateur WHERE email = '$email'";
@@ -67,7 +68,9 @@
 			{
 				echo "Membre créé";			
 			}
-			else{
+
+			else
+			{
 				Redirect('inscription.php?error_message='.'<br>Erreur création du compte', false);
 			}
 		}
@@ -77,12 +80,14 @@
 			echo "Database not found <br>";
 		}
 	
-		}
+	}
 
 	else
 	{
 		Redirect('index.php?error_message='.'<br>Veuillez remplir tous les champs', false);
 	}
+
+
 		function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
@@ -104,6 +109,8 @@
 
 	</div>
 
+
+
 	<div id="inscription">
 
 		<form action="inscription.php" method="post">
@@ -113,6 +120,20 @@
 			</tr>
 
 		</form>
+
+	</div>
+
+
+
+	<div id="footer">
+
+        <p>Droit d'auteur Giot Chabennet © 2018 ECEconnect</p> 
+
+        <p> Dernière mise à jour le 2/05/2018 |
+
+        <a href="mailto:ECEconnect@gmail.com">ECEconnect@gmail.com</a> 
+        
+        </p>
 
 	</div>
 

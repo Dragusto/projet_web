@@ -7,8 +7,9 @@
         <title>Projet piscine !!</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<link href="css/indexcss.css" rel="stylesheet" type="text/css" />
+		<h1>ECEconnect</h1>
 
-        <h1>Connection</h1>
+        <h2>Connection</h2>
 
     </head>
 
@@ -70,9 +71,12 @@
 	
     <div id="footer">
 
-        <p>Droit d'auteur © 2018 Nom du projet</p> 
-        <p> Dernière mise à jour le 30/04/2018 | 
-        <a href="mailto:nomDuProjet@gmail.com">nomDuProjet@gmail.com</a> 
+        <p>Droit d'auteur Giot Chabennet © 2018 ECEconnect</p> 
+
+        <p> Dernière mise à jour le 2/05/2018 |
+
+        <a href="mailto:ECEconnect@gmail.com">ECEconnect@gmail.com</a> 
+        
         </p>
 
     </div>
