@@ -23,14 +23,14 @@ header
 	color:#48751A;
 }
 
-
 .pr
 {
+
 	position: fixed;
 	top: 20%;
 	right: 87%;
 	left: 2%;
-	bottom: 15%;
+	bottom: 45%;
 	flex: 1.2;
     background-color: #706b64;
     padding: 10px;
@@ -38,20 +38,37 @@ header
     font-size: 0.9em;
 }
 
-
+img
+{
+	width: 200px;
+	 overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width:90px;
+    height:90px;
+}
 
 body
 {
-	position: absolute;
-	left: 20%;
-	right: 15%;
-	top: 15%;
-	bottom: 15%;
+	text-align: center;
+	margin-top: 10%;
+	margin-bottom: 15%;
 	color:#48751A;
 	background-color: #0FFFF8;
 }
 
-#footer
+.pro
+{
+	left: 50%;
+	right: 15%;
+	top: 35%;
+	bottom: 15%;
+	color:#48751A;
+
+}
+
+.footer
 {
 	padding-top: 35%;
 	text-align: center;

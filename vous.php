@@ -1,43 +1,36 @@
 <?php
 session_start();
 ?>
-
 <!DOCTYPE html>
 <html>
-
-	<?php
-		$database = "piscine";
-		$db_handle = mysqli_connect('localhost', 'root', '');
-		$db_found = mysqli_select_db($db_handle, $database);
+<?php
+	$database = "piscine";
+	$db_handle = mysqli_connect('localhost', 'root', '');
+	$db_found = mysqli_select_db($db_handle, $database);
 	
-		$id = $_SESSION['id'];
-		$sql = "SELECT * FROM membre WHERE id = '$id'";
-		$tab = mysqli_query($db_handle, $sql);
-		$row= mysqli_fetch_array($tab);
-		$nom = $row['nom'];
-		$prenom = $row['prenom'];
-		$email = $row['email'];
-		$job = $row['travail'];
-		$birth = $row['date de naissance'];
-		$city = $row['ville'];
-		$adresse = $row['adresse'];
-	?>
+$id = $_SESSION['id'];
+$sql = "SELECT * FROM membre WHERE id = '$id'";
+$tab = mysqli_query($db_handle, $sql);
+$row= mysqli_fetch_array($tab);
+$nom = $row['nom'];
+$prenom = $row['prenom'];
+$email = $row['email'];
+$job = $row['travail'];
+$birth = $row['date_de_naissance'];
+$city = $row['ville'];
+$adresse = $row['adresse'];
+?>
 
-	<head>
-
-        <title>ECEconnect</title>
+<head>
+        <title>Nom du projet</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<link href="css/vouscss.css" rel="stylesheet" type="text/css" />
-
+		<link rel="stylesheet" href="css/vouscss.css" media="screen" type="text/css">
     </head>
-
 		<!-- Here is the menu area -->
 	<header>
-
         <div id="titre">
-            <h1>ECEconnect</h1>     
+            <h1>Nom du projet</h1>     
         </div>
-
 		<nav>
 			<ul>
 				<a href="sommaire.php">Acceuil </a>
@@ -50,29 +43,31 @@ session_start();
 		</nav>
 		
 	</header>
-
 	<div class="pr">
-			<a href="parametre.php">Paramètre</a>
+		<a href="parametre.php">Paramètre</a>
 	</div>
+	
 
+	
 	<body>
-
-		<p> <?php echo $nom; ?> </p>
-		<p> <?php echo $nom; ?> </p>
-		<p> <?php echo $nom; ?> </p>
-		<p> <?php echo $nom; ?> </p>
-
+		<div id="pro">
+	<p><img src = profil/<?php echo $id;?>></p>
+		<p> Nom : <?php echo $nom; ?> </p>
+		<p> Prénom : <?php echo $prenom; ?> </p>
+		<?php if(!$adresse){}
+		else{echo 'Adresse : '.$adresse; } ?><p> <p/><?php
+		if(!$job){}
+		else{ echo 'Statut : '.$job;}?><p> </p><?php
+		if(!$birth){}
+		else{ echo 'Date de naissance : '.$birth;}?><p> </p>
+		</div>
 	</body>
-
 	<div id="footer">
 
-        <p>Droit d'auteur Giot Chabennet © 2018 ECEconnect</p> 
-
-        <p> Dernière mise à jour le 2/05/2018 |
-
-        <a href="mailto:ECEconnect@gmail.com">ECEconnect@gmail.com</a> 
-        
-        </p>
+			<p>Droit d'auteur © 2018 Nom du projet</p> 
+			<p> Dernière mise à jour le 30/04/2018 | 
+				<a href="mailto:nomDuProjet@gmail.com">nomDuProjet@gmail.com</a> 
+			</p>
 
 	</div>
 </html>
