@@ -84,7 +84,7 @@
 
 	else
 	{
-		Redirect('index.php?error_message='.'<br>Veuillez remplir tous les champs', false);
+		Redirect('inscription.php?error_message='.'<br>Veuillez remplir tous les champs', false);
 	}
 
 
