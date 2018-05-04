@@ -4,9 +4,8 @@
 <?php
 
 	$titre = isset($_POST["titre"])? $_POST["titre"]:"";
-	$date1 = isset($_POST["date1"])? $_POST["date1"]:"";
-	$datep = isset($_POST["datep"])? $_POST["datep"]:"";
-	$heure = isset($_POST["heure"])? $_POST["heure"]:"";
+	$date_evenement = isset($_POST["date1"])? $_POST["date1"]:"";
+	$datetime = date("Y-m-d H:i:s");
 
 	$connection = false;
 	$error = "";
@@ -15,16 +14,8 @@
 		$error .= "Titre est vide. ";
 	}
 
-	if($date1 == ""){
+	if($date_evenement == ""){
 		$error .= "Date est vide. ";
-	}
-
-	if($datep == ""){
-		$error .= "Date-poste est vide. ";
-	}
-
-	if($heure == ""){
-		$error .= "Heure est vide. ";
 	}
 
 
@@ -39,7 +30,7 @@
 		if($db_found)
 		{
 				// Insertion
-				$sql = "INSERT INTO evenement(date_event, titre, date_poste, heure) VALUES('$date1','$titre',$datep ,'$heure')";
+				$sql = "INSERT INTO evenement(titre, date_evenement, temps) VALUES('$titre', '$date_evenement', '$datetime')";
 			
 				if(mysqli_query($db_handle, $sql))
 				{
@@ -62,7 +53,7 @@
 
 	else
 	{
-		Redirect('publier.php?error_message='.'<br>Veuillez remplir tous les champs', false);
+		Redirect('sommaire.php?error_message='.'<br>Veuillez remplir tous les champs', false);
 	}
 
 

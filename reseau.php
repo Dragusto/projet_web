@@ -30,35 +30,38 @@
 	</header>
 
 	<body>
-		<div id="monReseau">
+		
 			<div id="titre2">
-				<h2>Voici les membres de votre reseau</h2>
+
+				<h2>Voici les membres de votre réseau</h2>
+
 			</div>
-			<?php
-				$database = "piscine";
-				$db_handle = mysqli_connect('localhost','root','root');
-				$db_found = mysqli_select_db($db_handle, $database);
 
-				echo "Voici tous les membres de votre reseau <br><br>";
+			<section>
 
-				$sql = "SELECT * FROM membre";
-				$result = mysqli_query($db_handle, $sql);		
-				while($data = mysqli_fetch_assoc($result))		
-				{												
-					echo "Nom: ".$data['nom'].'<br>';
-					echo "Prenom: ".$data['prenom'].'<br>';
-					echo "Date de naissance: ".$data['date de naissance'].'<br>';
-					echo "Ville: ".$data['ville'].'<br>';
-					echo "Travail: ".$data['travail'].'<br>';
-					echo "Adresse: ".$data['adresse'].'<br>';
-					echo "Email: ".$data['email'].'<br>';
-					echo "ID: ".$data['id']."<br><br>";
-				}
-			?>
-		</div>
-	</body>
+				<?php
+					$database = "piscine";
+					$db_handle = mysqli_connect('localhost','root','root');
+					$db_found = mysqli_select_db($db_handle, $database);
 
-	<div id="footer">
+
+					$sql = "SELECT * FROM membre";
+					$result = mysqli_query($db_handle, $sql);		
+					while($data = mysqli_fetch_assoc($result))		
+					{												
+						echo "Nom: ".$data['nom'].'<br>';
+						echo "Prenom: ".$data['prenom'].'<br>';
+						echo "Date de naissance: ".$data['date de naissance'].'<br>';
+						echo "Ville: ".$data['ville'].'<br>';
+						echo "Travail: ".$data['travail'].'<br>';
+						echo "Adresse: ".$data['adresse'].'<br>';
+						echo "Email: ".$data['email'].'<br>';
+						echo "ID: ".$data['id']."<br><br>";
+					}
+				?>
+			</section>
+
+		<div id="footer">
 
         <p>Droit d'auteur Giot Chabennet © 2018 ECEconnect</p> 
 
@@ -69,5 +72,7 @@
         </p>
 
 	</div>
+
+	</body>
 	
 </html>

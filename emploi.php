@@ -30,10 +30,13 @@
 	</header>
 
 	<body>
-		<div id="maListe">
+
 			<div id="titre2">
 				<h2>Voici la liste des emplois</h2>
 			</div>
+		
+		<div id="maListe">
+
 			<?php
 				$database = "piscine";
 				$db_handle = mysqli_connect('localhost','root','root');

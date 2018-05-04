@@ -45,15 +45,21 @@ session_start();
 			</ul>
 
 		</nav>
-
+		
 		<div class="rechercher">
+			
 			<form id="formulaire" action="rechercherTraitement.php" method="post">
+				
 				<tr>
 					<td><input onKeyPress="if(event.keyCode == 13) validerForm();" type="text" name="recherche" placeholder="rechercher profil"></td>
-				</tr>   
+				</tr> 
+
 			</form>
-			<?php
-            if(isset($_GET["error_message10"]))
+
+		<div class="publi">
+
+		<?php
+		if(isset($_GET["error_message10"]))
             {
               $error_message10 = $_GET["error_message10"];
         ?>
@@ -61,23 +67,60 @@ session_start();
         <p style = "color : red"> <?php echo $error_message10; ?></p>
           
         <?php } ?>
+
+			<?php
+          		if(isset($_GET["error_message"]))
+          		{
+             	$error_message = $_GET["error_message"];
+        	?>
+          	<p style = "color : red"> 
+          	<?php echo $error_message; ?>
+          	</p>
+        	<?php
+          	}
+			?>
+
+			<form action="publierTraitement.php" method="post">
+
+				<table id="publication">
+
+					<tr>
+						<td>Titre de l'evenement : </td>
+						<td><input type="text" name="titre"/></td>
+					</tr>
+
+					<tr>
+						<td>Date de l'evenement : </td>
+						<td><input type="date" name="date1"/></td>
+					</tr>
+
+					<tr>
+						<td colspan="2"><input type="Submit" value="Publier"/></td>
+					</tr>
+
+				</table>
+
+			</form>
+			
 		</div>
 
 		<div class="pr">
+
 			<?php
-		$chemin1 = "profil/$id.jpg";
-		if (is_file($chemin1))
-		{?>
-		<p><img src = profil/<?php echo $id;?>></p>
-		<?php } 
-		else
-		{?>
+			$chemin1 = "profil/$id.jpg";
+			if (is_file($chemin1))
+			{?>
+			<p><img src = profil/<?php echo $id;?>></p>
+			<?php } 
+			else
+			{?>
 			<p><img src = "profil/0"></p>
 		<?php } ?>
+
+			<p><img src = profil/<?php echo $id;?>></p>
 			<p><?php echo $nom;?> </p>
 			<p><?php echo $prenom; ?></p>
 			<p><?php if (!$job){}else{echo $job;}?></p>
-
 		</div>
 
 	</header>
@@ -94,7 +137,6 @@ session_start();
 
 				<h2>Fil d'actualités</h2>
 
-			</div>
 
 			<?php
 
@@ -108,14 +150,40 @@ session_start();
 
 
 				while($data = mysqli_fetch_assoc($result))		
-				{												
+				{		
+
 					echo "Titre de l'evenement: ".$data['titre'].'<br>';
-					echo "Date de l'evenement: ".$data['date_event'].'<br>';
-					echo "Date publié: ".$data['date_poste'].'<br>';
-					echo "Heure publié: ".$data['heure'].'h<br><br>';
+
+					echo "Date de l'evenement: ".$data['date_evenement'].'<br>';
+
+					echo "Date publiée: ".$data['temps'].'<br>';
+
+					echo "id evenement: ".$data['id_evenement'].'<br>';
+
+					?>
+
+					<form action="sommaireliker.php" method="post">
+
+						<tr>
+							<td> id de l'evenement a liker </td>
+							<td> <input type="number" name="id_evenement"\></td>
+						</tr>
+
+						<tr>
+							<td> <input type="submit" value="liker"\> </td>
+						</tr>
+
+					</form>
+
+					<?php
+
+					echo "Nombre de like: ".$data['nb_like'].'<br><br>';
+
 				}
 
 			?>
+
+			</div>
 
 	</section>
 	
