@@ -46,17 +46,38 @@ session_start();
 
 		</nav>
 
-		<div class="publi">
-
-			<a href="publier.php">Publier </a>
-			
+		<div class="rechercher">
+			<form id="formulaire" action="rechercherTraitement.php" method="post">
+				<tr>
+					<td><input onKeyPress="if(event.keyCode == 13) validerForm();" type="text" name="recherche" placeholder="rechercher profil"></td>
+				</tr>   
+			</form>
+			<?php
+            if(isset($_GET["error_message10"]))
+            {
+              $error_message10 = $_GET["error_message10"];
+        ?>
+        
+        <p style = "color : red"> <?php echo $error_message10; ?></p>
+          
+        <?php } ?>
 		</div>
 
 		<div class="pr">
-			<p><img src = profil/<?php echo $id;?>></p>
+			<?php
+		$chemin1 = "profil/$id.jpg";
+		if (is_file($chemin1))
+		{?>
+		<p><img src = profil/<?php echo $id;?>></p>
+		<?php } 
+		else
+		{?>
+			<p><img src = "profil/0"></p>
+		<?php } ?>
 			<p><?php echo $nom;?> </p>
 			<p><?php echo $prenom; ?></p>
 			<p><?php if (!$job){}else{echo $job;}?></p>
+
 		</div>
 
 	</header>
