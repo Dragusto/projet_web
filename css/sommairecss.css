@@ -18,6 +18,14 @@ header
 	background-color: #0FFFF8;
 }
 
+.rechercher
+{
+	position: fixed;
+	top: 5%; right: 0%; bottom:90%;
+	transform: translate(-50%, -50%);
+	color:#48751A;
+}
+
 .titre
 {
 	position: fixed;
