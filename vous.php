@@ -5,7 +5,7 @@ session_start();
 <html>
 <?php
 	$database = "piscine";
-	$db_handle = mysqli_connect('localhost', 'root', 'root');
+	$db_handle = mysqli_connect('localhost', 'root', '');
 	$db_found = mysqli_select_db($db_handle, $database);
 	
 $id = $_SESSION['id'];
@@ -19,17 +19,25 @@ $job = $row['travail'];
 $birth = $row['date_de_naissance'];
 $city = $row['ville'];
 $adresse = $row['adresse'];
+
+$sql = "SELECT id_1 FROM relation WHERE id_1 = '$id' or id_2 = '$id' GROUP BY id_1 ";
+$tab1 = mysqli_query($db_handle, $sql);
+$row1 = mysqli_fetch_array($tab1);
+
+$nb_relation = count($row1);
+
+
 ?>
 
 <head>
-        <title>Nom du projet</title>
+       
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<link rel="stylesheet" href="css/vouscss.css" media="screen" type="text/css">
     </head>
 		<!-- Here is the menu area -->
 	<header>
-        <div id="titre">
-            <h1>Nom du projet</h1>     
+        <div class="titre">
+            <h1>ECE Connect</h1>     
         </div>
 		<nav>
 			<ul>
@@ -51,6 +59,8 @@ $adresse = $row['adresse'];
 		{?>
 		<p><a href="CV/<?php echo $id.".pdf";?>">Curriculum vitae</a></p>
 		<?php } ?>
+		<p><a href="relationvous.php">Relation(<?php echo $nb_relation ?>)</a></p>
+		<p><a href="photo.php">Photos</a></p>
 	</div>
 	
 
@@ -67,8 +77,7 @@ $adresse = $row['adresse'];
 		<?php } ?>
 		<p> Nom : <?php echo $nom; ?> </p>
 		<p> Prénom : <?php echo $prenom; ?> </p>
-		<?php if(!$adresse){}
-		<?php if(!$adresse){}else{echo 'Adresse : '.$adresse; } ?><p> <p/>
+		<?php if(!$adresse){}else{echo 'Adresse : '.$adresse; } ?><p> </p>
 		<?php if(!$job){}else{ echo 'Statut : '.$job;} ?><p> </p>
 		<?php if(!$birth){}else{ echo 'Date de naissance : '.$birth;} ?><p> </p>
 	<body>
