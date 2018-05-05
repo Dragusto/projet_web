@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 05 mai 2018 à 11:42
+-- Généré le :  sam. 05 mai 2018 à 16:55
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -71,11 +71,11 @@ CREATE TABLE IF NOT EXISTS `evenement` (
 
 INSERT INTO `evenement` (`id_evenement`, `titre`, `date_evenement`, `temps`, `nb_like`, `auteur`) VALUES
 (1, 'meeting', '2012-12-12', '2018-05-04 09:54:03', 2, 0),
-(2, 'reunion', '2018-05-20', '2018-05-04 09:58:22', 2, 0),
-(3, 'meeting', '2012-12-12', '2018-05-04 12:22:08', 2, 0),
+(2, 'reunion', '2018-05-20', '2018-05-04 09:58:22', 3221, 95),
+(3, 'meeting', '2012-12-12', '2018-05-04 12:22:08', 3, 93),
 (4, 'h', '2012-12-12', '2018-05-04 13:59:31', 2, 0),
 (5, 'a', '0000-00-00', '2018-05-05 08:47:42', 0, 0),
-(6, 'b', '0000-00-00', '2018-05-05 08:51:19', 9, 2);
+(6, 'b', '0000-00-00', '2018-05-05 08:51:19', 4, 2);
 
 -- --------------------------------------------------------
 
@@ -113,15 +113,40 @@ INSERT INTO `membre` (`nom`, `prenom`, `date_de_naissance`, `ville`, `travail`, 
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `messagerie`
+--
+
+DROP TABLE IF EXISTS `messagerie`;
+CREATE TABLE IF NOT EXISTS `messagerie` (
+  `id_send` int(100) NOT NULL,
+  `id_receive` int(100) NOT NULL,
+  `message` text NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`id_send`,`id_receive`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `photo`
 --
 
 DROP TABLE IF EXISTS `photo`;
 CREATE TABLE IF NOT EXISTS `photo` (
   `id` int(100) NOT NULL,
-  `nom_photo` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `nom_photo` varchar(255) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `photo`
+--
+
+INSERT INTO `photo` (`id`, `nom_photo`) VALUES
+(95, 'New Super-Man (2016-) 001-012 copie.jpg'),
+(95, 'New Super-Man (2016-) 001-011 copie.jpg'),
+(95, 'New Super-Man (2016-) 001-022 copie.jpg'),
+(95, 'New Super-Man (2016-) 001-021 copie.jpg'),
+(95, 'New Super-Man (2016-) 001-020 copie.jpg');
 
 -- --------------------------------------------------------
 

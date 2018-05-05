@@ -22,7 +22,7 @@ $tabExt = array('jpg','gif','png','jpeg', 'mp4');    // Extensions autorisees
 $extension = '';
 $message = '';
 $photo = '';
- 
+
 /************************************************************
  * Creation du repertoire cible si inexistant
  *************************************************************/
@@ -37,15 +37,20 @@ if( !is_dir(TARGET) ) {
  *************************************************************/
 if(isset($_FILES['uploaded_files'])) 
 {
+	echo "ijn";
     foreach($_FILES['uploaded_files']['name'] as $file => $error) // On traite le tableau retourné par file
     {
+		echo "vgbhnj,k;l";
 		if ($error == UPLOAD_ERR_OK) 
 		{
 			$tmp_name = $_FILES["uploaded_files"]["tmp_name"][$file];
 			$name = $_FILES["uploaded_files"]["name"][$file];
 			
+			echo "dfghj";
+			
 			if(move_uploaded_file($tmp_name, TARGET.$name))
 			{
+				echo "cv";
 				$sql = " INSERT INTO photo(id, nom_photo) VALUES ('$id', '$name')";
 				mysqli_query($db_handle, $sql);				
 			}

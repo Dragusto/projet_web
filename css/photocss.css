@@ -51,13 +51,13 @@ header
 	z-index : 6;
 }
 
-.right
+.photo
 {
 	position: fixed;
-	top: 20%;
+	top: 5%;
 	right: 5%;
-	left: 76%;
-	bottom: 20%;
+	left: 70%;
+	bottom: 80%;
 	flex: 1.2;
     background-color: #706b64;
     padding: 10px;
@@ -69,12 +69,9 @@ header
 
 img
 {
-	overflow:hidden;
-    -webkit-border-radius:50px;
-    -moz-border-radius:50px;
+	width: 150px;
+
     border-radius:50px;
-    width:90px;
-    height:90px;
 }
 
 body
@@ -86,6 +83,8 @@ body
 	background-color: #0FFFF8;
 	z-index:2;
 }
+
+
 
 
 .pro
