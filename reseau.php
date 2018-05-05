@@ -39,7 +39,7 @@ session_start();
 		</nav>
 	</header>
 
-<<<<<<< HEAD
+
     <body>
 	<?php
 		foreach($array_id_search as $id_search)
@@ -78,42 +78,7 @@ session_start();
 		</form>
 		<?php } ?>
 		
-	<div id="footer">
-=======
-	<body>
-		
-			<div id="titre2">
-
-				<h2>Voici les membres de votre réseau</h2>
-
-			</div>
-
-			<section>
-
-				<?php
-					$database = "piscine";
-					$db_handle = mysqli_connect('localhost','root','root');
-					$db_found = mysqli_select_db($db_handle, $database);
-
-
-					$sql = "SELECT * FROM membre";
-					$result = mysqli_query($db_handle, $sql);		
-					while($data = mysqli_fetch_assoc($result))		
-					{												
-						echo "Nom: ".$data['nom'].'<br>';
-						echo "Prenom: ".$data['prenom'].'<br>';
-						echo "Date de naissance: ".$data['date de naissance'].'<br>';
-						echo "Ville: ".$data['ville'].'<br>';
-						echo "Travail: ".$data['travail'].'<br>';
-						echo "Adresse: ".$data['adresse'].'<br>';
-						echo "Email: ".$data['email'].'<br>';
-						echo "ID: ".$data['id']."<br><br>";
-					}
-				?>
-			</section>
-
 		<div id="footer">
->>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 
         <p>Droit d'auteur Giot Chabennet © 2018 ECEconnect</p> 
 
@@ -123,19 +88,17 @@ session_start();
         
         </p>
 
-<<<<<<< HEAD
-    </div>
+		</div>
 	
 	</body>
 
-<?php	function validerForm(){
-    document.getElementById("rechercher").submit();
-}?>
 	
-=======
 	</div>
 
 	</body>
->>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
+<?php	function validerForm(){
+    document.getElementById("rechercher").submit();
+}?>
+
 	
 </html>

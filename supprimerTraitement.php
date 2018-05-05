@@ -23,27 +23,22 @@ session_start();
 	unset($
 	if (mysqli_query($db_handle, $sql))
 	{
-		echo "a";
+	
 	}
 	if (mysqli_query($db_handle, $sql1))
 	{
-		echo "b";
 	}
 	if (mysqli_query($db_handle, $sql2))
 	{
-		echo "c";
 	}
 	if (mysqli_query($db_handle, $sql3))
 	{
-		echo "d";
 	}
 	if (mysqli_query($db_handle, $sql4))
 	{
-		echo "e";
 	}
 	if (mysqli_query($db_handle, $sql5))
 	{
-		echo "f";
 	}
 	
 ?>

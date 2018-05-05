@@ -59,16 +59,11 @@ $nb_relation = count($row1);
 		{?>
 		<p><a href="CV/<?php echo $id.".pdf";?>">Curriculum vitae</a></p>
 		<?php } ?>
-<<<<<<< HEAD
 		<p><a href="reseau.php">Relation(<?php echo $nb_relation ?>)</a></p>
-=======
-		<p><a href="relationvous.php">Relation(<?php echo $nb_relation ?>)</a></p>
->>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 		<p><a href="photo.php">Photos</a></p>
 	</div>
 	
-
-	<div id="pro">
+		<div class="right">
 			<?php
 		$chemin1 = "profil/$id.jpg";
 		if (is_file($chemin1))
@@ -84,8 +79,66 @@ $nb_relation = count($row1);
 		<?php if(!$adresse){}else{echo 'Adresse : '.$adresse; } ?><p> </p>
 		<?php if(!$job){}else{ echo 'Statut : '.$job;} ?><p> </p>
 		<?php if(!$birth){}else{ echo 'Date de naissance : '.$birth;} ?><p> </p>
+		</div>
 	<body>
 		
+		<section>
+		<div id="titre2">
+			<h2>Fil d'actualités du profil</h2>
+			<?php
+				$sql = "SELECT * FROM evenement WHERE auteur = '$id'";
+				$result = mysqli_query($db_handle, $sql);
+
+				while($data = mysqli_fetch_assoc($result))		
+				{		
+					?>
+					<form enctype="multipart/form-data">
+					<?php
+					echo "Titre de l'evenement:".$data['titre'].'<br>';
+					echo "Date de l'evenement :".$data['date_evenement'].'<br>';
+					echo "Date publiée        :".$data['temps'].'<br>';
+					echo "Nombre de like      :".$data['nb_like'].'<br>';
+					?>
+
+					</form>	
+
+					<form action="sommaireliker.php" method="post">
+						<tr>
+							<td> <input type="submit" value="liker"\> </td>
+							<?php $_SESSION['id_evenement'] = $data['id_evenement']; ?>
+						</tr>
+					</form>
+					<?php
+					echo "<br>";
+					?>
+					<?php
+				}
+				while($data = mysqli_fetch_assoc($result))		
+				{		
+					?>
+					<form enctype="multipart/form-data">
+					<?php
+					echo "Titre de l'evenement:".$data['titre'].'<br>';
+					echo "Date de l'evenement :".$data['date_evenement'].'<br>';
+					echo "Date publiée        :".$data['temps'].'<br>';
+					echo "Nombre de like      :".$data['nb_like'].'<br>';
+					?>
+					</form>	
+					<form action="sommaireliker.php" method="post">
+						<tr>
+							<td> <input type="submit" value="liker"\> </td>
+							<?php $_SESSION['id_evenement'] = $data['id_evenement']; ?>
+						</tr>
+					</form>
+					<?php
+					echo "<br>";
+					?>				
+					<?php
+				}
+			?>
+		</div>
+	</section>
+	
 	</body>
 	
 	<div id="footer">

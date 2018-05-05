@@ -12,31 +12,23 @@ session_start();
 	$ajouter = isset($_POST["ajouter"])? $_POST["ajouter"]:"";
 	$suppr = isset($_POST["suppr"])? $_POST["suppr"]:"";
 
-<<<<<<< HEAD
 	$id = $_SESSION['id'];
 	$id_search = $_SESSION['id_search'];
 	if($ajouter)
 	{	
 		$sql = "INSERT INTO relation(id_1, id_2) VALUES('$id_search','$id') ";
-=======
 	$id_connect = $_SESSION['id'];
 	$id_search = $_SESSION['id_search'];
 	if($ajouter)
 	{	
 		$sql = "INSERT INTO relation(id_1, id_2) VALUES('$id_search','$id_connect') ";
->>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 		mysqli_query($db_handle, $sql);
 	}
 
 	if($suppr)
 	{
-<<<<<<< HEAD
 		$sql1 = "DELETE FROM relation WHERE id_1 = '$id_search' and id_2 = '$id'";
 		$sql2 = "DELETE FROM relation WHERE id_2 = '$id_search' and id_1 = '$id'";
-=======
-		$sql1 = "DELETE FROM relation WHERE id_1 = '$id_search' and id_2 = '$id_connect'";
-		$sql2 = "DELETE FROM relation WHERE id_2 = '$id_search' and id_1 = '$id_connect'";
->>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 		
 		if(mysqli_query($db_handle, $sql1))
 		{}	

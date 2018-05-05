@@ -94,6 +94,14 @@ body
 	z-index: 1;
 }
 
+.deco
+{
+	position: fixed;
+	bottom: 17%;
+	left: 3.4%; 
+	z-index:10;
+}
+
 section
 {
 	position: absolute;

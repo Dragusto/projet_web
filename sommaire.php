@@ -175,8 +175,6 @@ session_start();
 			{?>
 			<p><img src = "profil/0"></p>
 		<?php } ?>
-
-			<p><img src = profil/<?php echo $id;?>></p>
 			<p><?php echo $nom;?> </p>
 			<p><?php echo $prenom; ?></p>
 			<p><?php if (!$job){}else{echo $job;}?></p>
@@ -204,10 +202,8 @@ session_start();
 					<form enctype="multipart/form-data">
 					<?php
 
-<<<<<<< HEAD
+
 					echo "Titre de l'evenement:".$data['titre'].'<br>';
-=======
->>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 
 					echo "Date de l'evenement :".$data['date_evenement'].'<br>';
 
@@ -236,8 +232,8 @@ session_start();
 					
 					<?php
 
-<<<<<<< HEAD
-=======
+				}
+
 				while($data = mysqli_fetch_assoc($result))		
 				{		
 					?>
@@ -273,16 +269,16 @@ session_start();
 					
 					<?php
 
->>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
+
 				}
 
 			?>
 
-<<<<<<< HEAD
+
 		</div>
-=======
+
 			</div>
->>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
+
 
 	</section>
 	
@@ -299,6 +295,12 @@ session_start();
     </div>
 	
 	</body>
+	
+	<div class="deco">
+		<form action="deco.php" method="post">
+			<td> <input type="submit" value="Deconnection"\> </td>
+		</form>
+	</div>
 	
 	
 </html>

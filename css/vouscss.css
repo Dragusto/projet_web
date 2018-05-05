@@ -4,10 +4,7 @@ nav
   top: 5%; left: 50%;  /* à 50%/50% du parent référent */
   transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
   background-color:#2b95ff;
-<<<<<<< HEAD
     z-index: 3;
-=======
->>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 }
 
 header
@@ -16,7 +13,6 @@ header
 	top: 0%;
 	left: 0%;
 	right: 0%;
-<<<<<<< HEAD
 	bottom: 69.5%;
 	background-color: #0FFFF8;
 
@@ -29,9 +25,6 @@ header
 	transform: translate(-50%, -50%);
 	color:#48751A;
 	z-index: 5;
-=======
-	bottom: 70%;
->>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 }
 
 .titre
@@ -55,11 +48,24 @@ header
     padding: 10px;
     color: white;
     font-size: 0.9em;
-<<<<<<< HEAD
 	z-index : 6;
-=======
->>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 }
+
+.right
+{
+	position: fixed;
+	top: 20%;
+	right: 5%;
+	left: 76%;
+	bottom: 20%;
+	flex: 1.2;
+    background-color: #706b64;
+    padding: 10px;
+    color: white;
+    font-size: 0.9em;
+	z-index : 6;
+}
+
 
 img
 {
@@ -75,18 +81,11 @@ img
 body
 {
 	text-align: center;
-<<<<<<< HEAD
 	margin-top: 20%;
 	margin-bottom: 15%;
 	color:#48751A;
 	background-color: #0FFFF8;
 	z-index:2;
-=======
-	margin-top: 10%;
-	margin-bottom: 15%;
-	color:#48751A;
-	background-color: #0FFFF8;
->>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 }
 
 .pro
@@ -103,7 +102,6 @@ body
 {
 	padding-top: 35%;
 	text-align: center;
-<<<<<<< HEAD
 	bottom: 50px;
 }
 
@@ -115,7 +113,4 @@ body
 	bottom: 10%;
 	transform: translate(-50%, -50%);
 	color:#48751A;
-=======
-	
->>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 }
