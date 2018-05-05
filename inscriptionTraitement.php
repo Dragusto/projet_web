@@ -37,7 +37,7 @@
 	{
 		echo "Formulaire valide <br/><br/>";
 		$database = "piscine";
-		$db_handle = mysqli_connect('localhost','root','root');
+		$db_handle = mysqli_connect('localhost','root','');
 		$db_found = mysqli_select_db($db_handle, $database);
 		
 		

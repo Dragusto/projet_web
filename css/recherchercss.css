@@ -13,17 +13,9 @@ header
 	top: 0%;
 	left:0%;
 	right: 0%;
-	bottom: 69.5%;
+	bottom: 80%;
 	z-index: 2;
 	background-color: #0FFFF8;
-}
-
-.rechercher
-{
-	position: fixed;
-	top: 5%; right: 0%; bottom:90%;
-	transform: translate(-50%, -50%);
-	color:#48751A;
 }
 
 .titre
@@ -33,14 +25,21 @@ header
 	transform: translate(-50%, -50%);
 	color:#48751A;
 }
+.rechercher
+{
+	position: fixed;
+	top: 5%; right: 0%; bottom:90%;
+	transform: translate(-50%, -50%);
+	color:#48751A;
+}
 
 .publi
 {
 	position: fixed;
 	top: 12%;
-	right: 15%;
+	right: 20%;
 	left: 20%;
-	bottom: 65%;
+	bottom: 70%;
 	background-color: #666666;
 	z-index: 3;
 }
@@ -59,7 +58,6 @@ header
     color: white;
     font-size: 0.9em;
 }
-
 img
 {
 	width: 200px;
@@ -71,43 +69,20 @@ img
     height:90px;
 }
 
-img2
-{
-	width: 100px;
-	overflow:hidden;
-    -webkit-border-radius:50px;
-    -moz-border-radius:50px;
-    border-radius:50px;
-    width:90px;
-    height:90px;
-}
-
 
 body
 {
-	position:center;
-	left:25%;
-	right:15%;
-	top:30%;
-	bottom:15%;
-	background-color:#0FFFF8;
-	z-index: 1;
-}
-
-section
-{
 	position: absolute;
-	top:40%;
-	left:20%;
-	right: 15%;
-	color:#48751A;
-	background-color: #FFFFFF;
+	top: 120px; right: 30%;	left: 30%;
+	background-color: #0FFFF8;
+	z-index: 1;
+
 }
 
 
 #footer
 {
-	padding-top: 1000px;
+	top: 500px;
 	text-align: center;
 	z-index: 3;
 }

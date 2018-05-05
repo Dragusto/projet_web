@@ -8,7 +8,11 @@ session_start();
 	$db_handle = mysqli_connect('localhost', 'root', '');
 	$db_found = mysqli_select_db($db_handle, $database);
 	
+<<<<<<< HEAD
+$id = $_SESSION['id'];
+=======
 $id_connect = $_SESSION['id'];
+>>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 $id_search = $_SESSION['id_search'];
 $sql = "SELECT * FROM membre WHERE id = '$id_search'";
 $tab = mysqli_query($db_handle, $sql);
@@ -21,7 +25,11 @@ $birth = $row['date_de_naissance'];
 $city = $row['ville'];
 $adresse = $row['adresse'];
 
+<<<<<<< HEAD
+$sql = "SELECT admin FROM membre WHERE id = '$id'";
+=======
 $sql = "SELECT admin FROM membre WHERE id = '$id_connect'";
+>>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 $tab = mysqli_query($db_handle, $sql);
 $row2= mysqli_fetch_array($tab);
 $admin = $row2['admin'];
@@ -94,8 +102,13 @@ $nb_relation = count($row1);
 	
 	<div class="ajouter">
 		<?php 
+<<<<<<< HEAD
+		$sql1 = "SELECT id_1, id_2 FROM relation WHERE id_1 = '$id' and id_2 = '$id_search'";
+		$sql2 = "SELECT id_1, id_2 FROM relation WHERE id_1 = '$id_search' and id_2 = '$id'";
+=======
 		$sql1 = "SELECT id_1, id_2 FROM relation WHERE id_1 = '$id_connect' and id_2 = '$id_search'";
 		$sql2 = "SELECT id_1, id_2 FROM relation WHERE id_1 = '$id_search' and id_2 = '$id_connect'";
+>>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 		$tab_sql1 = mysqli_query($db_handle, $sql1);
 		$row_sql1 = mysqli_fetch_array($tab_sql1);
 		$tab_sql2 = mysqli_query($db_handle, $sql2);
@@ -136,6 +149,10 @@ $nb_relation = count($row1);
 	{?>
 	<div class="admin">
 		<form action="supprimerTraitement.php" method="post">
+<<<<<<< HEAD
+				<?php $_SESSION['id_suppr'] = $id_search; ?>
+=======
+>>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 				<td colspan='10'><input type='submit' value='Supprimer' name="supprimer"></td>
 		</form>
 	</div>

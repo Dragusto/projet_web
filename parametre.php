@@ -113,7 +113,7 @@ $birth = $row['date_de_naissance'];
           <p>
             <label for="fichier_a_uploader" title="Recherchez le fichier à uploader !">Changer de photo de profil :</label>
             <input name="fichier" type="file" id="fichier_a_uploader" />
-            <input type="submit" name="submit" value="Uploader" />
+            <input type="submit" />
 			<?php
             if(isset($_GET["error_message1"]))
             {

@@ -7,7 +7,7 @@ session_start();
 
 	<?php
 		$database = "piscine";
-		$db_handle = mysqli_connect('localhost', 'root', 'root');
+		$db_handle = mysqli_connect('localhost', 'root', '');
 		$db_found = mysqli_select_db($db_handle, $database);
 	
 		$id = $_SESSION['id'];
@@ -18,6 +18,12 @@ session_start();
 		$nom = $row['nom'];
 		$prenom = $row['prenom'];
 		$job = $row['travail'];
+		
+		$sql = "SELECT id_1 FROM relation WHERE id_1 = '$id' or id_2 = '$id' GROUP BY id_1 ";
+		$tab1 = mysqli_query($db_handle, $sql);
+		$row1 = mysqli_fetch_array($tab1);
+
+		$nb_relation = count($row1);
 	?>
 
     <head>
@@ -108,6 +114,55 @@ session_start();
 			?>
 		</div>
 
+		<div class="publi">
+
+		<?php
+		if(isset($_GET["error_message10"]))
+            {
+              $error_message10 = $_GET["error_message10"];
+        ?>
+        
+        <p style = "color : red"> <?php echo $error_message10; ?></p>
+          
+        <?php } ?>
+
+			
+
+			<form enctype="multipart/form-data" action="publierTraitement.php" method="post">
+
+				<table id="publication">
+					<p> </p>
+					<p> </p>
+					<tr>
+						<td>Titre de l'evenement : </td>
+						<td><input type="text" name="titre"/></td>
+					</tr>
+
+					<tr>
+						<td>Date de l'evenement : </td>
+						<td><input type="date" name="date1"/></td>
+					</tr>
+
+					<tr>
+						<td colspan="2"><input type="Submit" value="Publier"/></td>
+					</tr>
+
+				</table>
+
+			</form>
+			<?php
+          		if(isset($_GET["error_message"]))
+          		{
+             	$error_message = $_GET["error_message"];
+        	?>
+          	<p style = "color : red"> 
+          	<?php echo $error_message; ?>
+          	</p>
+        	<?php
+          	}
+			?>
+		</div>
+
 		<div class="pr">
 
 			<?php
@@ -136,23 +191,53 @@ session_start();
 	
 
 	<section>
-
-			<div id="titre2">
-
-				<h2>Fil d'actualités</h2>
-
-
+		<div id="titre2">
+			<h2>Fil d'actualités</h2>
 			<?php
-
-				$database = "piscine";
-				$db_handle = mysqli_connect('localhost','root','root');
-				$db_found = mysqli_select_db($db_handle, $database);
-
-
 				$sql = "SELECT * FROM evenement";
 				$result = mysqli_query($db_handle, $sql);
 
 
+				while($data = mysqli_fetch_assoc($result))		
+				{		
+					?>
+					<form enctype="multipart/form-data">
+					<?php
+
+<<<<<<< HEAD
+					echo "Titre de l'evenement:".$data['titre'].'<br>';
+=======
+>>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
+
+					echo "Date de l'evenement :".$data['date_evenement'].'<br>';
+
+					echo "Date publiée        :".$data['temps'].'<br>';
+
+					echo "Nombre de like      :".$data['nb_like'].'<br>';
+
+					?>
+
+					</form>	
+
+					<form action="sommaireliker.php" method="post">
+
+						<tr>
+							<td> <input type="submit" value="liker"\> </td>
+							<?php $_SESSION['id_evenement'] = $data['id_evenement']; ?>
+						</tr>
+
+					</form>
+
+					<?php
+					
+					echo "<br>";
+
+					?>
+					
+					<?php
+
+<<<<<<< HEAD
+=======
 				while($data = mysqli_fetch_assoc($result))		
 				{		
 					?>
@@ -188,11 +273,16 @@ session_start();
 					
 					<?php
 
+>>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 				}
 
 			?>
 
+<<<<<<< HEAD
+		</div>
+=======
 			</div>
+>>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 
 	</section>
 	

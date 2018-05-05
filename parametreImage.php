@@ -19,7 +19,6 @@ define('TARGET', 'profil/');    // Repertoire cible
  
 // Tableaux de donnees
 $tabExt = array('jpg','gif','png','jpeg');    // Extensions autorisees
-$infosImg = array();
  
 // Variables
 $extension = '';

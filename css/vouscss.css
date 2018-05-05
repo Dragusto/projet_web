@@ -4,6 +4,10 @@ nav
   top: 5%; left: 50%;  /* à 50%/50% du parent référent */
   transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
   background-color:#2b95ff;
+<<<<<<< HEAD
+    z-index: 3;
+=======
+>>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 }
 
 header
@@ -12,7 +16,22 @@ header
 	top: 0%;
 	left: 0%;
 	right: 0%;
+<<<<<<< HEAD
+	bottom: 69.5%;
+	background-color: #0FFFF8;
+
+}
+
+.ajouter
+{
+	position: fixed;
+	top: 5%; right: 10%; bottom: 90%;
+	transform: translate(-50%, -50%);
+	color:#48751A;
+	z-index: 5;
+=======
 	bottom: 70%;
+>>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 }
 
 .titre
@@ -36,6 +55,10 @@ header
     padding: 10px;
     color: white;
     font-size: 0.9em;
+<<<<<<< HEAD
+	z-index : 6;
+=======
+>>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 }
 
 img
@@ -52,10 +75,18 @@ img
 body
 {
 	text-align: center;
+<<<<<<< HEAD
+	margin-top: 20%;
+	margin-bottom: 15%;
+	color:#48751A;
+	background-color: #0FFFF8;
+	z-index:2;
+=======
 	margin-top: 10%;
 	margin-bottom: 15%;
 	color:#48751A;
 	background-color: #0FFFF8;
+>>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 }
 
 .pro
@@ -72,5 +103,19 @@ body
 {
 	padding-top: 35%;
 	text-align: center;
+<<<<<<< HEAD
+	bottom: 50px;
+}
+
+.admin
+{
+	position: fixed;
+	top: 95%;
+	left: 10%;
+	bottom: 10%;
+	transform: translate(-50%, -50%);
+	color:#48751A;
+=======
 	
+>>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 }

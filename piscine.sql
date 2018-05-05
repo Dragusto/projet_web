@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 04 mai 2018 à 07:27
+-- Généré le :  sam. 05 mai 2018 à 11:42
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -25,6 +25,61 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `emploi`
+--
+
+DROP TABLE IF EXISTS `emploi`;
+CREATE TABLE IF NOT EXISTS `emploi` (
+  `travail` varchar(100) NOT NULL,
+  `lieu` varchar(100) NOT NULL,
+  `dateDebut` date NOT NULL,
+  `contrat` varchar(100) NOT NULL,
+  `auteur` int(100) NOT NULL,
+  `datePubli` datetime NOT NULL,
+  `description` varchar(535) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `emploi`
+--
+
+INSERT INTO `emploi` (`travail`, `lieu`, `dateDebut`, `contrat`, `auteur`, `datePubli`, `description`) VALUES
+('trader', 'Paris', '2018-05-21', 'CDI', 0, '0000-00-00 00:00:00', ''),
+('developpeur', 'Paris', '2018-05-30', 'CDD', 0, '0000-00-00 00:00:00', ''),
+('qwerty', 'asdf', '2012-12-12', 'CDD', 2, '2018-05-05 10:23:34', 'qwertyuiopasdfghjklzxcvbnm,');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `evenement`
+--
+
+DROP TABLE IF EXISTS `evenement`;
+CREATE TABLE IF NOT EXISTS `evenement` (
+  `id_evenement` int(100) NOT NULL AUTO_INCREMENT,
+  `titre` varchar(100) NOT NULL,
+  `date_evenement` date NOT NULL,
+  `temps` datetime NOT NULL,
+  `nb_like` int(100) NOT NULL,
+  `auteur` int(100) NOT NULL,
+  PRIMARY KEY (`id_evenement`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `evenement`
+--
+
+INSERT INTO `evenement` (`id_evenement`, `titre`, `date_evenement`, `temps`, `nb_like`, `auteur`) VALUES
+(1, 'meeting', '2012-12-12', '2018-05-04 09:54:03', 2, 0),
+(2, 'reunion', '2018-05-20', '2018-05-04 09:58:22', 2, 0),
+(3, 'meeting', '2012-12-12', '2018-05-04 12:22:08', 2, 0),
+(4, 'h', '2012-12-12', '2018-05-04 13:59:31', 2, 0),
+(5, 'a', '0000-00-00', '2018-05-05 08:47:42', 0, 0),
+(6, 'b', '0000-00-00', '2018-05-05 08:51:19', 9, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `membre`
 --
 
@@ -38,6 +93,7 @@ CREATE TABLE IF NOT EXISTS `membre` (
   `adresse` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `id` int(10) NOT NULL,
+  `admin` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='table membre';
@@ -46,13 +102,26 @@ CREATE TABLE IF NOT EXISTS `membre` (
 -- Déchargement des données de la table `membre`
 --
 
-INSERT INTO `membre` (`nom`, `prenom`, `date_de_naissance`, `ville`, `travail`, `adresse`, `email`, `id`) VALUES
-('a', 'a', NULL, NULL, NULL, NULL, 'a', 94),
-('Blanc', 'Corentin', NULL, NULL, NULL, NULL, 'qc@gmail.com', 95),
-('Chabennet', 'Quentin', '25 Avril 1995', NULL, 'Etudiant ING 3', '16 Sentier des Sablons Cachan 94230', 'qchabennet@gmail.com', 93),
-('aze', 'aze', NULL, NULL, NULL, NULL, 'aze', 99),
-('az', 'aze', NULL, NULL, NULL, NULL, 'aze', 102),
-('az', 'azer', NULL, NULL, NULL, NULL, 'azer', 103);
+INSERT INTO `membre` (`nom`, `prenom`, `date_de_naissance`, `ville`, `travail`, `adresse`, `email`, `id`, `admin`) VALUES
+('a', 'a', NULL, NULL, NULL, NULL, 'a', 94, NULL),
+('Blanc', 'Corentin', NULL, NULL, NULL, NULL, 'qc@gmail.com', 95, NULL),
+('Chabennet', 'Quentin', '25 Avril 1995', NULL, 'Etudiant ING 3', '16 Sentier des Sablons Cachan 94230', 'qchabennet@gmail.com', 93, 1),
+('aze', 'aze', NULL, NULL, NULL, NULL, 'aze', 99, NULL),
+('az', 'aze', NULL, NULL, NULL, NULL, 'aze', 102, NULL),
+('az', 'azer', NULL, NULL, NULL, 'qsxdcfvgbhunjinibftdrsew', 'azer', 103, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `photo`
+--
+
+DROP TABLE IF EXISTS `photo`;
+CREATE TABLE IF NOT EXISTS `photo` (
+  `id` int(100) NOT NULL,
+  `nom_photo` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -62,16 +131,20 @@ INSERT INTO `membre` (`nom`, `prenom`, `date_de_naissance`, `ville`, `travail`, 
 
 DROP TABLE IF EXISTS `relation`;
 CREATE TABLE IF NOT EXISTS `relation` (
+  `relation` int(11) NOT NULL AUTO_INCREMENT,
   `id_1` int(100) NOT NULL,
-  `id_2` int(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `id_2` int(100) NOT NULL,
+  PRIMARY KEY (`relation`)
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `relation`
 --
 
-INSERT INTO `relation` (`id_1`, `id_2`) VALUES
-(93, 95);
+INSERT INTO `relation` (`relation`, `id_1`, `id_2`) VALUES
+(13, 93, 95),
+(2, 95, 103),
+(11, 102, 95);
 
 -- --------------------------------------------------------
 

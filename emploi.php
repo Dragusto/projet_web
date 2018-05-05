@@ -35,7 +35,11 @@ session_start();
 			<form enctype="multipart/form-data" action="emploiTraitement.php" method="post">
 
 				<table id="publication">
+<<<<<<< HEAD
+					
+=======
 					<p> </p>
+>>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 
 					<tr>
 						<td>Travail : </td>
@@ -92,7 +96,7 @@ session_start();
 
 			<?php
 				$database = "piscine";
-				$db_handle = mysqli_connect('localhost','root','root');
+				$db_handle = mysqli_connect('localhost','root','');
 				$db_found = mysqli_select_db($db_handle, $database);
 
 				$auteur =

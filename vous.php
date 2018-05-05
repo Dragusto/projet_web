@@ -59,7 +59,11 @@ $nb_relation = count($row1);
 		{?>
 		<p><a href="CV/<?php echo $id.".pdf";?>">Curriculum vitae</a></p>
 		<?php } ?>
+<<<<<<< HEAD
+		<p><a href="reseau.php">Relation(<?php echo $nb_relation ?>)</a></p>
+=======
 		<p><a href="relationvous.php">Relation(<?php echo $nb_relation ?>)</a></p>
+>>>>>>> acb8d0f05ccbea6e547a591204b5138cbeb1c66b
 		<p><a href="photo.php">Photos</a></p>
 	</div>
 	
@@ -83,6 +87,7 @@ $nb_relation = count($row1);
 	<body>
 		
 	</body>
+	
 	<div id="footer">
 
 			<p>Droit d'auteur © 2018 Nom du projet</p> 
