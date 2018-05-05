@@ -94,9 +94,10 @@ $adresse = $row['adresse'];
 			{
 				$tmp_name = $_FILES["uploaded_files"]["tmp_name"][$clef];
 				$name = $_FILES["uploaded_files"]["name"][$clef];
-				
+				echo "zert";
 				if(move_uploaded_file($tmp_name, $id.'/'.$name))
 				{
+					echo "zertyuiop";
 					$sql = "INSERT INTO photo(id, nom_photo) VALUES ('$id', '$name')";
 					if(mysqli_query($db_handle, $sql))
 					{
