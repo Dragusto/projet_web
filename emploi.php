@@ -1,5 +1,8 @@
-<!DOCTYPE html>
+<?php
+session_start();
+?>
 
+<!DOCTYPE html>
 <html>
 
 	<head>
@@ -27,13 +30,63 @@
 			</ul>
 		</nav>
 
+		<div class="publi">
+
+			<form enctype="multipart/form-data" action="emploiTraitement.php" method="post">
+
+				<table id="publication">
+					<p> </p>
+
+					<tr>
+						<td>Travail : </td>
+						<td><input type="text" name="travail"/></td>
+					</tr>
+
+					<tr>
+						<td>Lieu : </td>
+						<td><input type="text" name="lieu"/></td>
+					</tr>
+
+					<tr>
+						<td>Date de début : </td>
+						<td><input type="date" name="dateDebut"/></td>
+					</tr>
+
+					<tr>
+						<td>Contrat : </td>
+						<td><input type="text" name="contrat"/></td>
+					</tr>
+
+					<tr>
+						<td>Description : </td>
+						<td><input type="text" name="description"/></td>
+					</tr>
+
+					<tr>
+						<td colspan="2"><input type="Submit" value="Publier"/></td>
+					</tr>
+
+				</table>
+
+			</form>
+
+			<?php
+          		if(isset($_GET["error_message"]))
+          		{
+             	$error_message = $_GET["error_message"];
+        	?>
+          	<p style = "color : red"> 
+          	<?php echo $error_message; ?>
+          	</p>
+        	<?php
+          	}
+			?>
+
+		</div>
+
 	</header>
 
 	<body>
-
-			<div id="titre2">
-				<h2>Voici la liste des emplois</h2>
-			</div>
 		
 		<div id="maListe">
 
@@ -42,15 +95,19 @@
 				$db_handle = mysqli_connect('localhost','root','root');
 				$db_found = mysqli_select_db($db_handle, $database);
 
+				$auteur =
+
 
 				$sql = "SELECT * FROM emploi";
 				$result = mysqli_query($db_handle, $sql);		
 				while($data = mysqli_fetch_assoc($result))		
 				{												
-					echo "Travail: ".$data['travail'].'<br>';
-					echo "Lieu: ".$data['lieu'].'<br>';
-					echo "Date de début: ".$data['dateDebut'].'<br>';
-					echo "Contrat: ".$data['contrat'].'<br><br>';
+					echo "Travail:             ".$data['travail'].'<br>';
+					echo "Lieu:                ".$data['lieu'].'<br>';
+					echo "Date de début:       ".$data['dateDebut'].'<br>';
+					echo "Contrat:             ".$data['contrat'].'<br>';
+					echo "Description:         ".$data['description'].'<br>';
+					echo "Date de publication: ".$data['datePubli'].'<br><br>';
 				}
 			?>
 		</div>

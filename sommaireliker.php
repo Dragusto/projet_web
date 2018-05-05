@@ -1,6 +1,6 @@
 <?php
 
-	$id_evenement = isset($_POST["id_evenement"])?$_POST["id_evenement"] : "";
+	$id_evenement = $_SESSION['id_evenement'];
 
 	$database = "piscine";
 	$db_handle = mysqli_connect('localhost','root','root');
@@ -8,12 +8,12 @@
 
 	if($db_found)
 	{
-		$sql = "SELECT * FROM evenement WHERE id_evenement = '$id_evenement'";
+		$sql = "SELECT nb_like FROM evenement WHERE id_evenement = '$id_evenement'";
 		$result = mysqli_query($db_handle, $sql);
 		//$result = $result+1;
 		//echo "$result";
 		$data = mysqli_fetch_assoc($result);
-		$nb_like .= $data['nb_like'];
+		$nb_like .= $data['nb_like']+1; 
 
 		$sql = "UPDATE evenement SET nb_like = '$nb_like' WHERE id_evenement = '$id_evenement'";
 			
@@ -28,17 +28,4 @@
 			}	
 	}
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

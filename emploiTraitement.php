@@ -7,20 +7,35 @@ session_start();
 
 <?php
 
-	$titre = isset($_POST["titre"])? $_POST["titre"]:"";
-	$date_evenement = isset($_POST["date1"])? $_POST["date1"]:"";
-	$datetime = date("Y-m-d H:i:s");
+	$travail = isset($_POST["travail"])? $_POST["travail"]:"";
+	$lieu = isset($_POST["lieu"])? $_POST["lieu"]:"";
+	$dateDebut = isset($_POST["dateDebut"])? $_POST["dateDebut"]:"";
+	$contrat = isset($_POST["contrat"])? $_POST["contrat"]:"";
+	$description = isset($_POST["description"])? $_POST["description"]:"";
+	
+	$datePubli = date("Y-m-d H:i:s");
 	$auteur = $_SESSION['auteur_publi'];
 
-	$connection = false;
 	$error = "";
 
-	if($titre == ""){
-		$error .= "Titre est vide. ";
+	if($travail == ""){
+		$error .= "Travail est vide. ";
 	}
 
-	if($date_evenement == ""){
-		$error .= "Date est vide. ";
+	if($lieu == ""){
+		$error .= "Lieu est vide. ";
+	}
+
+	if($dateDebut == ""){
+		$error .= "Date est vide";
+	}
+
+	if($contrat == ""){
+		$error .= "Contrat est vide";
+	}
+
+	if($description == ""){
+		$error .= "Description est vide";
 	}
 
 
@@ -35,7 +50,7 @@ session_start();
 		if($db_found)
 		{
 				// Insertion
-				$sql = "INSERT INTO evenement(titre, date_evenement, temps, auteur) VALUES('$titre', '$date_evenement', '$datetime','$auteur')";
+				$sql = "INSERT INTO emploi(travail, lieu, dateDebut, contrat, description, auteur, datePubli) VALUES('$travail', '$lieu', '$dateDebut','$contrat','$description', '$auteur', '$datePubli')";
 			
 				if(mysqli_query($db_handle, $sql))
 				{
@@ -58,7 +73,7 @@ session_start();
 
 	else
 	{
-		Redirect('sommaire.php?error_message='.'<br>Veuillez remplir tous les champs', false);
+		Redirect('emploi.php?error_message='.'<br>Veuillez remplir tous les champs', false);
 	}
 
 
@@ -71,9 +86,9 @@ session_start();
 
 ?>
 
-	<div id="accueil">
+	<div id="emploi">
 
-		<form action="sommaire.php" method="post">
+		<form action="emploi.php" method="post">
 
 			<tr>
 				<td colspan="2"> <input type="submit" value="Retourner à l'accueil"\></td>
@@ -82,6 +97,7 @@ session_start();
 		</form>
 
 	</div>
+
 
 
 	<div id="footer">

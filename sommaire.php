@@ -11,6 +11,7 @@ session_start();
 		$db_found = mysqli_select_db($db_handle, $database);
 	
 		$id = $_SESSION['id'];
+		$_SESSION['auteur_publi'] = $id;
 		$sql = "SELECT * FROM membre WHERE id = '$id'";
 		$tab = mysqli_query($db_handle, $sql);
 		$row= mysqli_fetch_array($tab);
@@ -56,6 +57,8 @@ session_start();
 
 			</form>
 
+		</div>
+
 		<div class="publi">
 
 		<?php
@@ -68,22 +71,13 @@ session_start();
           
         <?php } ?>
 
-			<?php
-          		if(isset($_GET["error_message"]))
-          		{
-             	$error_message = $_GET["error_message"];
-        	?>
-          	<p style = "color : red"> 
-          	<?php echo $error_message; ?>
-          	</p>
-        	<?php
-          	}
-			?>
+			
 
-			<form action="publierTraitement.php" method="post">
+			<form enctype="multipart/form-data" action="publierTraitement.php" method="post">
 
 				<table id="publication">
-
+					<p> </p>
+					<p> </p>
 					<tr>
 						<td>Titre de l'evenement : </td>
 						<td><input type="text" name="titre"/></td>
@@ -101,7 +95,17 @@ session_start();
 				</table>
 
 			</form>
-			
+			<?php
+          		if(isset($_GET["error_message"]))
+          		{
+             	$error_message = $_GET["error_message"];
+        	?>
+          	<p style = "color : red"> 
+          	<?php echo $error_message; ?>
+          	</p>
+        	<?php
+          	}
+			?>
 		</div>
 
 		<div class="pr">
@@ -151,33 +155,38 @@ session_start();
 
 				while($data = mysqli_fetch_assoc($result))		
 				{		
+					?>
+					<form enctype="multipart/form-data">
+					<?php
 
-					echo "Titre de l'evenement: ".$data['titre'].'<br>';
+					echo "Titre de l'evenement:".$data['titre'].'<br>';
 
-					echo "Date de l'evenement: ".$data['date_evenement'].'<br>';
+					echo "Date de l'evenement :".$data['date_evenement'].'<br>';
 
-					echo "Date publiée: ".$data['temps'].'<br>';
+					echo "Date publiée        :".$data['temps'].'<br>';
 
-					echo "id evenement: ".$data['id_evenement'].'<br>';
+					echo "Nombre de like      :".$data['nb_like'].'<br>';
 
 					?>
+
+					</form>	
 
 					<form action="sommaireliker.php" method="post">
 
 						<tr>
-							<td> id de l'evenement a liker </td>
-							<td> <input type="number" name="id_evenement"\></td>
-						</tr>
-
-						<tr>
 							<td> <input type="submit" value="liker"\> </td>
+							<?php $_SESSION['id_evenement'] = $data['id_evenement']; ?>
 						</tr>
 
 					</form>
 
 					<?php
+					
+					echo "<br>";
 
-					echo "Nombre de like: ".$data['nb_like'].'<br><br>';
+					?>
+					
+					<?php
 
 				}
 
